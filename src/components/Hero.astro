@@ -1,0 +1,118 @@
+
+---
+// src/components/Hero.astro
+---
+
+<section class="relative min-h-[90vh] flex items-center pt-0 overflow-hidden bg-grafito w-full">
+  {/* Fondo de Imagen con Degradado Oscuro y Parallax */}
+  <div class="absolute inset-0 z-0 overflow-hidden w-full">
+    {/* Degradado lateral oscuro para la legibilidad del texto */}
+    <div class="absolute inset-0 bg-gradient-to-r from-grafito via-grafito/60 to-transparent z-10 pointer-events-none"></div>
+    
+    {/* Degradado inferior para borrar el corte de la imagen y fundirlo con la siguiente sección */}
+    <div class="absolute inset-x-0 bottom-0 h-40 md:h-64 bg-gradient-to-t from-grafito via-grafito/80 to-transparent z-20 pointer-events-none"></div>
+    
+    {/* Contenedor animado para el Parallax */}
+    <div id="parallax-bg" class="absolute inset-0 w-full h-[120%] -top-[10%] z-0 will-change-transform">
+      {/* Imagen para Móvil (Visible solo en pantallas pequeñas) */}
+      <img 
+        alt="Hero Locksmith Mobile" 
+        class="w-full h-full object-cover opacity-80 mix-blend-overlay block md:hidden" 
+        src="/portada-movil.jpg" 
+      />
+      
+      {/* Imagen para PC (Visible desde tamaño md hacia arriba) */}
+      <img 
+        alt="Hero Locksmith Desktop" 
+        class="w-full h-full object-cover opacity-80 mix-blend-overlay hidden md:block" 
+        src="/portada-millave.jpg" 
+      />
+    </div>
+  </div>
+
+  {/* Contenedor Principal con animaciones escalonadas */}
+  <div class="relative z-30 w-full px-4 md:px-8 max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 items-center mt-12 md:mt-0">
+    <div class="space-y-5 md:space-y-6">
+      
+      {/* Etiqueta / Badge Superior */}
+      <div class="fade-in-up delay-100 inline-flex items-center gap-2 px-3 pt-1 md:px-4 md:py-1.5 bg-naranja-dorado/10 border border-naranja-dorado/30 text-naranja-dorado rounded-full font-bebas text-base sm:text-lg md:text-xl tracking-wider flex-wrap">
+        <span class="material-symbols-outlined text-[16px] md:text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+        <span>TU CERRAJERÍA DE CONFIANZA</span>
+      </div>
+
+      {/* Título Principal */}
+      <h1 class="fade-in-up delay-200 font-russo text-4xl sm:text-[40px] md:text-6xl text-blanco-tecnico leading-tight uppercase drop-shadow-lg">
+        CERRAJERO A DOMICILIO EN ZIPAQUIRÁ <br/>
+        <span class="text-naranja-dorado">Mi Llave O.B</span>
+      </h1>
+
+      {/* Párrafo Descriptivo */}
+      <p class="fade-in-up delay-300 font-montserrat text-base sm:text-lg md:text-xl text-plata max-w-xl font-light">
+        Servicio de cerrajería urgente 24/7. Especialistas en apertura de carros sin daños, cerrajería residencial y venta de chapas de alta seguridad. Llegamos rápido a cualquier zona de Zipaquirá y alrededores.
+      </p>
+
+      {/* Botones de Acción */}
+      <div class="fade-in-up delay-400 flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4 w-full sm:w-auto">
+        {/* Botón de WhatsApp */}
+        <a class="flex items-center justify-center gap-2 md:gap-3 px-4 py-3 md:px-8 md:py-2 bg-[#25D366] text-blanco-tecnico font-bebas text-xl md:text-2xl tracking-wide rounded-xl hover:brightness-110 hover:scale-105 transition-all shadow-[0_0_15px_rgba(37,211,102,0.2)] text-center w-full sm:w-auto" href="https://wa.me/573247355486?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20hacer%20una%20consulta." target="_blank">
+          <span class="material-symbols-outlined text-[20px] md:text-[24px]">chat_bubble</span>
+          Solicitar por WhatsApp
+        </a>
+        
+        {/* Botón de Llamada */}
+        <a class="flex items-center justify-center gap-2 md:gap-3 px-4 py-3 md:px-8 md:py-2 border-2 border-naranja-dorado text-naranja-dorado font-bebas text-xl md:text-2xl tracking-wide rounded-xl hover:bg-naranja-dorado hover:text-grafito hover:scale-105 transition-all text-center shadow-[0_0_15px_rgba(255,152,0,0.1)] w-full sm:w-auto" href="tel:+573102342263">
+          <span class="material-symbols-outlined text-[20px] md:text-[24px]">phone_in_talk</span>
+          Llamar Ahora
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones fluidas de entrada (sin parpadeo) */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Retrasos escalonados para que los elementos entren uno tras otro */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 400ms; }
+  .delay-400 { animation-delay: 600ms; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  // Script para el efecto parallax en scroll
+  const parallaxBg = document.getElementById('parallax-bg');
+
+  if (parallaxBg) {
+    // Usamos requestAnimationFrame para que la animación sea fluida y no afecte el rendimiento
+    let scrollY = window.scrollY;
+    let ticking = false;
+
+    const updateParallax = () => {
+      // Ajusta el "0.4" para hacer el efecto más rápido o más lento
+      parallaxBg.style.transform = `translateY(${scrollY * 0.4}px)`;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      scrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    });
+  }
+</script>

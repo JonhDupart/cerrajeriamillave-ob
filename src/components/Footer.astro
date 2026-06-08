@@ -1,0 +1,205 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-negro-carbon border-t border-plata/10 pt-20 pb-8 relative overflow-hidden" id="contacto">
+  {/* Decoración de fondo sutil */}
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-naranja-dorado/50 to-transparent"></div>
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-naranja-dorado/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      
+      {/* Columna 1: Marca y Descripción */}
+      <div data-footer-reveal style="--footer-delay: 0ms;" class="space-y-6">
+       <a href="/" class="z-50 relative block transition-transform duration-300 hover:scale-105">
+      <img 
+        src="/logomillave.png" 
+        alt="Logo Mi Llave O.B Cerrajería" 
+        class="h-12 md:h-16 w-auto object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
+      />
+    </a>
+        <p class="font-montserrat text-cromo-medio font-light leading-relaxed">
+          Cerrajería profesional automotriz y residencial en Zipaquirá. Especialistas en apertura sin daños, cerraduras de alta seguridad y servicio a domicilio.
+        </p>
+      </div>
+
+      {/* Columna 2: Enlaces Rápidos */}
+      <div data-footer-reveal style="--footer-delay: 120ms;">
+        <h3 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-6">Enlaces Rápidos</h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="font-montserrat text-plata font-light hover:text-naranja-dorado transition-colors flex items-center gap-2 group">
+              <span class="w-1.5 h-1.5 rounded-full bg-naranja-dorado opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="#servicios" class="font-montserrat text-plata font-light hover:text-naranja-dorado transition-colors flex items-center gap-2 group">
+              <span class="w-1.5 h-1.5 rounded-full bg-naranja-dorado opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              Servicios Especializados
+            </a>
+          </li>
+          <li>
+            <a href="#nosotros" class="font-montserrat text-plata font-light hover:text-naranja-dorado transition-colors flex items-center gap-2 group">
+              <span class="w-1.5 h-1.5 rounded-full bg-naranja-dorado opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              Por qué Elegirnos
+            </a>
+          </li>
+          <li>
+            <a href="#cobertura" class="font-montserrat text-plata font-light hover:text-naranja-dorado transition-colors flex items-center gap-2 group">
+              <span class="w-1.5 h-1.5 rounded-full bg-naranja-dorado opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              Zonas de Cobertura
+            </a>
+          </li>
+          <li>
+            <a href="#faq" class="font-montserrat text-plata font-light hover:text-naranja-dorado transition-colors flex items-center gap-2 group">
+              <span class="w-1.5 h-1.5 rounded-full bg-naranja-dorado opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              Preguntas Frecuentes
+            </a>
+          </li>
+           <li>
+            <a href="#faq" class="font-montserrat text-plata font-light hover:text-naranja-dorado transition-colors flex items-center gap-2 group">
+              <span class="w-1.5 h-1.5 rounded-full bg-naranja-dorado opacity-0 group-hover:opacity-100 transition-opacity"></span>
+              Ubicación
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Columna 3: Servicios Destacados */}
+      <div data-footer-reveal style="--footer-delay: 240ms;">
+        <h3 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-6">Servicios Destacados</h3>
+        <ul class="space-y-4 font-montserrat text-plata font-light">
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-cromo-medio text-[20px]">directions_car</span>
+            Apertura de Vehículos
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-cromo-medio text-[20px]">door_front</span>
+            Apertura Residencial
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-cromo-medio text-[20px]">vpn_key</span>
+            Venta e Instalación de Chapas
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-cromo-medio text-[20px]">fingerprint</span>
+            Cerraduras Inteligentes
+          </li>
+            <li class="flex items-center gap-3">
+  <span class="material-symbols-outlined text-cromo-medio text-[20px]">handyman</span>
+  Ferretería
+</li>
+        </ul>
+      </div>
+
+      {/* Columna 4: Contacto */}
+      <div data-footer-reveal style="--footer-delay: 360ms;">
+        <h3 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-6">Contacto de Emergencia</h3>
+        <ul class="space-y-4">
+          <li>
+            <a href="tel:+573102342263" class="flex items-start gap-3 group">
+              <span class="material-symbols-outlined text-naranja-dorado mt-1 group-hover:scale-110 transition-transform">phone_in_talk</span>
+              <div>
+                <p class="font-bebas text-xl text-blanco-tecnico tracking-wide">Llamada Directa</p>
+                <p class="font-montserrat text-cromo-medio font-light">3102342263</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/573247355486?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20hacer%20una%20consulta." target="_blank" class="flex items-start gap-3 group">
+              <span class="material-symbols-outlined text-[#25D366] mt-1 group-hover:scale-110 transition-transform">chat</span>
+              <div>
+                <p class="font-bebas text-xl text-blanco-tecnico tracking-wide">WhatsApp</p>
+                <p class="font-montserrat text-cromo-medio font-light">Escríbanos ahora</p>
+              </div>
+            </a>
+          </li>
+          <li class="flex items-start gap-3 pt-2">
+            <span class="material-symbols-outlined text-cromo-medio mt-1">location_on</span>
+            <div>
+              <p class="font-bebas text-xl text-blanco-tecnico tracking-wide">Ubicación</p>
+              <p class="font-montserrat text-cromo-medio font-light">Cra 7 # 23-72 vía Cogua, Zipaquirá, Cundinamarca<br/>Servicio a domicilio</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    {/* Línea inferior / Derechos de autor y firma */}
+    <div data-footer-reveal style="--footer-delay: 120ms;" class="border-t border-plata/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-montserrat text-sm text-cromo-medio font-light">
+        &copy; {currentYear} Cerrajería Mi Llave O.B . Todos los derechos reservados.
+      </p>
+      <p class="font-montserrat text-sm text-cromo-medio font-light flex items-center gap-1">
+        Desarrollado por <a href="https://zipaquiradigital.com" target="_blank" class="text-plata hover:text-naranja-dorado font-medium transition-colors">Zipaquirá Digital</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  [data-footer-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.985);
+    filter: blur(8px);
+    transition:
+      opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 820ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 820ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--footer-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-footer-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-footer-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const initFooterReveal = () => {
+    const elements = document.querySelectorAll('[data-footer-reveal]');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.01,
+        rootMargin: '0px 0px 22% 0px',
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  };
+
+  initFooterReveal();
+
+  document.addEventListener('astro:page-load', initFooterReveal);
+</script>

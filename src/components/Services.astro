@@ -1,0 +1,161 @@
+---
+// src/components/Services.astro
+---
+
+<section class="py-24 px-4 md:px-8 max-w-7xl mx-auto" id="servicios">
+  {/* Encabezado de la Sección */}
+  <div class="text-center mb-16">
+    <h2 class="font-russo text-4xl md:text-5xl text-blanco-tecnico mb-4 uppercase drop-shadow-md">
+      Nuestros Servicios Especializados
+    </h2>
+    <p class="font-montserrat text-lg text-plata max-w-2xl mx-auto font-light">
+      Soluciones integrales de seguridad con tecnología de punta y personal experto disponible en todo momento.
+    </p>
+  </div>
+
+  {/* Grid de Tarjetas de Servicio */}
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    {/* Tarjeta 1 */}
+    <div data-service-card style="--reveal-delay: 0ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">car_repair</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Apertura de Vehículos</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        Apertura técnica sin daños para todo tipo de autos y camionetas. Servicio especializado con herramientas de precisión.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+
+    {/* Tarjeta 2 */}
+    <div data-service-card style="--reveal-delay: 90ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">door_front</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Apertura Residencial</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        ¿Olvidó sus llaves? Abrimos puertas de casas y apartamentos con el mayor cuidado y rapidez para su tranquilidad.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+
+    {/* Tarjeta 3 */}
+    <div data-service-card style="--reveal-delay: 180ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">vpn_key</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Venta de Chapas</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        Amplio catálogo de cerraduras de alta seguridad, cilindros y sistemas biométricos de las mejores marcas.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+
+    {/* Tarjeta 4 */}
+    <div data-service-card style="--reveal-delay: 270ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">construction</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Instalación de Chapas</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        Personal capacitado para la instalación técnica de cualquier tipo de sistema de seguridad en puertas.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+
+    {/* Tarjeta 5 */}
+    <div data-service-card style="--reveal-delay: 360ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">published_with_changes</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Cambio de Cerraduras</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        Actualice su seguridad o cambie combinaciones tras mudanzas para mantener el control total de sus accesos.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+
+    {/* Tarjeta 6 */}
+    <div data-service-card style="--reveal-delay: 450ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">electric_moped</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Servicio a Domicilio</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        Llegamos a donde usted lo necesite en Zipaquirá y alrededores con unidades móviles totalmente equipadas.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+  {/* Tarjeta 7 */}
+    <div data-service-card style="--reveal-delay: 540ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">handyman</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Ferretería</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        Ofrecemos un amplio surtido de herramientas, repuestos y accesorios de ferretería de alta calidad para todas sus reparaciones y proyectos.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+
+    {/* Tarjeta 8 */}
+    <div data-service-card style="--reveal-delay: 630ms;" class="bg-negro-carbon rounded-2xl p-8 border border-plata/10 group hover:border-naranja-dorado/50 transition-colors shadow-lg hover:shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col h-full">
+      <span class="material-symbols-outlined text-[48px] text-naranja-dorado mb-6 group-hover:scale-110 transition-transform block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">key</span>
+      <h3 class="font-bebas text-3xl tracking-wide text-blanco-tecnico mb-4">Duplicado de llaves</h3>
+      <p class="font-montserrat text-cromo-medio mb-6 flex-grow font-light leading-relaxed">
+        Copias exactas y garantizadas para chapas residenciales, candados y vehículos, elaboradas al instante con maquinaria de alta precisión.
+      </p>
+      <div class="h-1 w-12 bg-naranja-dorado group-hover:w-full transition-all duration-300"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  [data-service-card] {
+    opacity: 0;
+    transform: translate3d(0, 46px, 0) scale(0.97);
+    filter: blur(10px);
+    transition:
+      opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 860ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 860ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-service-card].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-service-card] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const initServiceCardsReveal = () => {
+    const cards = document.querySelectorAll('[data-service-card]');
+
+    if (!cards.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach((card) => card.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+  };
+
+  initServiceCardsReveal();
+
+  document.addEventListener('astro:page-load', initServiceCardsReveal);
+</script>

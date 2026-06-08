@@ -1,0 +1,146 @@
+---
+// src/components/About.astro
+---
+
+<section class="py-24 bg-grafito relative border-t border-plata/5" id="nosotros">
+  <div class="px-4 md:px-8 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    
+    {/* Contenedor de Imagen */}
+    <div data-about-reveal style="--about-delay: 0ms;" class="relative rounded-2xl overflow-hidden aspect-square lg:aspect-video shadow-[0_10px_40px_rgba(0,0,0,0.8)] border border-plata/10 group">
+      <img 
+        alt="Workshop" 
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+        data-alt="A meticulously organized locksmith workshop featuring a wide array of high-precision tools and hundreds of blank keys arranged neatly on a dark metal pegboard. The scene is lit by professional studio lights that catch the metallic gleam of brass and steel. The atmosphere is professional, suggesting decades of experience and a commitment to quality. The color palette focuses on deep charcoal, warm brass, and soft neutral highlights." 
+        src="/porquemillave.jpg" 
+      />
+      {/* Overlay para oscurecer y dar tono a la imagen */}
+      <div class="absolute inset-0 bg-negro-carbon/40 mix-blend-multiply transition-all duration-500 group-hover:bg-negro-carbon/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-grafito/90 via-transparent to-transparent"></div>
+      
+      {/* Badge Flotante de Experiencia */}
+      <div data-about-reveal style="--about-delay: 220ms;" class="absolute bottom-8 left-8 bg-negro-carbon/80 backdrop-blur-md p-6 rounded-xl border border-naranja-dorado/30 shadow-[0_0_20px_rgba(255,152,0,0.15)] flex flex-col items-center justify-center">
+        <span class="font-russo text-5xl text-naranja-dorado block drop-shadow-[0_0_8px_rgba(255,152,0,0.4)]">15+</span>
+        <span class="font-bebas text-xl tracking-wider text-blanco-tecnico mt-1">Años de Experiencia</span>
+      </div>
+    </div>
+
+    {/* Contenedor de Contenido y Lista */}
+    <div class="space-y-8">
+      <h2 data-about-reveal style="--about-delay: 120ms;" class="font-russo text-4xl md:text-5xl text-blanco-tecnico uppercase drop-shadow-md">
+        ¿Por qué elegir Mi Llave Zipaquirá?
+      </h2>
+      
+      <div class="space-y-6">
+        
+        {/* Item 1 */}
+        <div data-about-reveal style="--about-delay: 220ms;" class="flex gap-5 group">
+          <div class="flex-shrink-0 w-14 h-14 bg-negro-carbon border border-plata/10 rounded-xl flex items-center justify-center text-naranja-dorado shadow-inner shadow-naranja-dorado/5 group-hover:border-naranja-dorado/50 group-hover:scale-110 transition-all duration-300">
+            <span class="material-symbols-outlined text-[28px]">timer</span>
+          </div>
+          <div>
+            <h4 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-1">Respuesta Ultra Rápida</h4>
+            <p class="font-montserrat text-cromo-medio font-light leading-relaxed">Entendemos que una emergencia no puede esperar. Tiempo promedio de llegada: 20 minutos.</p>
+          </div>
+        </div>
+
+        {/* Item 2 */}
+        <div data-about-reveal style="--about-delay: 320ms;" class="flex gap-5 group">
+          <div class="flex-shrink-0 w-14 h-14 bg-negro-carbon border border-plata/10 rounded-xl flex items-center justify-center text-naranja-dorado shadow-inner shadow-naranja-dorado/5 group-hover:border-naranja-dorado/50 group-hover:scale-110 transition-all duration-300">
+            <span class="material-symbols-outlined text-[28px]">workspace_premium</span>
+          </div>
+          <div>
+            <h4 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-1">Profesionalismo Certificado</h4>
+            <p class="font-montserrat text-cromo-medio font-light leading-relaxed">Técnicos calificados que utilizan herramientas de última generación para garantizar aperturas limpias.</p>
+          </div>
+        </div>
+
+        {/* Item 3 */}
+        <div data-about-reveal style="--about-delay: 420ms;" class="flex gap-5 group">
+          <div class="flex-shrink-0 w-14 h-14 bg-negro-carbon border border-plata/10 rounded-xl flex items-center justify-center text-naranja-dorado shadow-inner shadow-naranja-dorado/5 group-hover:border-naranja-dorado/50 group-hover:scale-110 transition-all duration-300">
+            <span class="material-symbols-outlined text-[28px]">payments</span>
+          </div>
+          <div>
+            <h4 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-1">Precios Competitivos</h4>
+            <p class="font-montserrat text-cromo-medio font-light leading-relaxed">Tarifas justas y transparentes. Calidad premium al precio que su bolsillo merece.</p>
+          </div>
+        </div>
+
+        {/* Item 4 */}
+        <div data-about-reveal style="--about-delay: 520ms;" class="flex gap-5 group">
+          <div class="flex-shrink-0 w-14 h-14 bg-negro-carbon border border-plata/10 rounded-xl flex items-center justify-center text-naranja-dorado shadow-inner shadow-naranja-dorado/5 group-hover:border-naranja-dorado/50 group-hover:scale-110 transition-all duration-300">
+            <span class="material-symbols-outlined text-[28px]">location_on</span>
+          </div>
+          <div>
+            <h4 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-1">Experiencia Local</h4>
+            <p class="font-montserrat text-cromo-medio font-light leading-relaxed">Somos parte de la comunidad de Zipaquirá. Conocemos cada rincón y necesidad de nuestros vecinos.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  [data-about-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 42px, 0) scale(0.975);
+    filter: blur(10px);
+    transition:
+      opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 880ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 880ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--about-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-about-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-about-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const initAboutReveal = () => {
+    const elements = document.querySelectorAll('[data-about-reveal]');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  };
+
+  initAboutReveal();
+
+  document.addEventListener('astro:page-load', initAboutReveal);
+</script>

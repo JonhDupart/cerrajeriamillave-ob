@@ -1,0 +1,235 @@
+---
+
+// src/components/FaqAndCTA.astro
+---
+
+{/* =========================================
+    SECCIÓN DE PREGUNTAS FRECUENTES (FAQ)
+    ========================================= */}
+<section class="py-24 px-4 md:px-8 max-w-4xl mx-auto" id="faq">
+  <div data-faq-cta-reveal style="--faq-cta-delay: 0ms;" class="text-center mb-12">
+    <h2 class="font-russo text-4xl md:text-5xl text-blanco-tecnico uppercase drop-shadow-md mb-4">
+      Preguntas Frecuentes
+    </h2>
+    <p class="font-montserrat text-lg text-cromo-medio font-light">
+      Resolvemos sus dudas principales sobre nuestros servicios de cerrajería.
+    </p>
+  </div>
+
+  <div class="space-y-4">
+    {/* FAQ 1 */}
+    <details data-faq-item data-faq-cta-reveal style="--faq-cta-delay: 120ms;" class="group bg-negro-carbon rounded-xl border border-plata/10 shadow-lg open:border-naranja-dorado/50 transition-colors duration-300 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex items-center justify-between p-6 cursor-pointer font-bebas text-2xl tracking-wide text-blanco-tecnico select-none">
+        ¿Cuánto tiempo tardan en llegar a una emergencia?
+        <span class="material-symbols-outlined text-naranja-dorado group-open:rotate-180 transition-transform duration-300">expand_more</span>
+      </summary>
+      <div data-faq-answer class="px-6 pb-6 font-montserrat text-plata font-light leading-relaxed">
+        Contamos con unidades móviles estratégicamente ubicadas. En el casco urbano de Zipaquirá nuestro tiempo de respuesta promedio es de 20 minutos. También llegamos rápidamente a Cogua, Nemocón, Sopó y Cajicá.
+      </div>
+    </details>
+
+    {/* FAQ 2 */}
+    <details data-faq-item data-faq-cta-reveal style="--faq-cta-delay: 220ms;" class="group bg-negro-carbon rounded-xl border border-plata/10 shadow-lg open:border-naranja-dorado/50 transition-colors duration-300 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex items-center justify-between p-6 cursor-pointer font-bebas text-2xl tracking-wide text-blanco-tecnico select-none">
+        ¿Pueden abrir un carro de alta gama sin dañar la puerta?
+        <span class="material-symbols-outlined text-naranja-dorado group-open:rotate-180 transition-transform duration-300">expand_more</span>
+      </summary>
+      <div data-faq-answer class="px-6 pb-6 font-montserrat text-plata font-light leading-relaxed">
+        Sí, absolutamente. Nuestros técnicos están capacitados en técnicas de apertura no destructiva y utilizan herramientas de precisión especializadas para garantizar que su vehículo quede intacto.
+      </div>
+    </details>
+
+    {/* FAQ 3 */}
+    <details data-faq-item data-faq-cta-reveal style="--faq-cta-delay: 320ms;" class="group bg-negro-carbon rounded-xl border border-plata/10 shadow-lg open:border-naranja-dorado/50 transition-colors duration-300 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex items-center justify-between p-6 cursor-pointer font-bebas text-2xl tracking-wide text-blanco-tecnico select-none">
+        ¿Prestan servicio a domicilio en la madrugada?
+        <span class="material-symbols-outlined text-naranja-dorado group-open:rotate-180 transition-transform duration-300">expand_more</span>
+      </summary>
+      <div data-faq-answer class="px-6 pb-6 font-montserrat text-plata font-light leading-relaxed">
+        Así es. Las emergencias no tienen horario, por lo que ofrecemos servicio a domicilio 24/7. Puede llamarnos o escribirnos por WhatsApp a cualquier hora del día o de la noche.
+      </div>
+    </details>
+
+    {/* FAQ 4 */}
+    <details data-faq-item data-faq-cta-reveal style="--faq-cta-delay: 420ms;" class="group bg-negro-carbon rounded-xl border border-plata/10 shadow-lg open:border-naranja-dorado/50 transition-colors duration-300 [&_summary::-webkit-details-marker]:hidden">
+      <summary class="flex items-center justify-between p-6 cursor-pointer font-bebas text-2xl tracking-wide text-blanco-tecnico select-none">
+        ¿Venden las cerraduras o debo comprarlas por aparte?
+        <span class="material-symbols-outlined text-naranja-dorado group-open:rotate-180 transition-transform duration-300">expand_more</span>
+      </summary>
+      <div data-faq-answer class="px-6 pb-6 font-montserrat text-plata font-light leading-relaxed">
+        Ofrecemos un servicio integral. Contamos con un amplio catálogo de cerraduras convencionales, de alta seguridad y sistemas inteligentes/biométricos. Nosotros se la vendemos y se la dejamos instalada garantizando su correcto funcionamiento.
+      </div>
+    </details>
+  </div>
+</section>
+
+
+
+<style>
+  [data-faq-cta-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 44px, 0) scale(0.975);
+    filter: blur(10px);
+    transition:
+      opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 880ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 880ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--faq-cta-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-faq-cta-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  [data-faq-answer] {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+    padding-bottom: 0;
+    transition:
+      height 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding-bottom 620ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: height, opacity, transform, padding-bottom;
+  }
+
+  details[open] [data-faq-answer] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    padding-bottom: 1.5rem;
+  }
+
+  details[data-closing] [data-faq-answer] {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+    padding-bottom: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-faq-cta-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+
+    [data-faq-answer] {
+      opacity: 1;
+      height: auto;
+      transform: none;
+      padding-bottom: 1.5rem;
+      transition: none;
+    }
+  }
+
+  /* Animación personalizada para el resplandor de emergencia del botón principal */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 30px rgba(255,152,0,0.4);
+    }
+    50% {
+      box-shadow: 0 0 50px rgba(255,152,0,0.8);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2.5s infinite;
+  }
+</style>
+
+<script>
+  const initFaqCtaReveal = () => {
+    const elements = document.querySelectorAll<HTMLElement>('[data-faq-cta-reveal]');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  };
+
+  const initFaqAccordion = () => {
+    const items = document.querySelectorAll<HTMLDetailsElement>('[data-faq-item]');
+
+    items.forEach((item) => {
+      const summary = item.querySelector<HTMLElement>('summary');
+      const answer = item.querySelector<HTMLElement>('[data-faq-answer]');
+
+      if (!summary || !answer) return;
+
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const isOpen = item.hasAttribute('open');
+        const isAnimating = item.dataset.animating === 'true';
+
+        if (isAnimating) return;
+
+        item.dataset.animating = 'true';
+
+        if (!isOpen) {
+          item.setAttribute('open', '');
+          item.removeAttribute('data-closing');
+
+          answer.style.height = '0px';
+
+          requestAnimationFrame(() => {
+            answer.style.height = `${answer.scrollHeight}px`;
+          });
+
+          window.setTimeout(() => {
+            answer.style.height = 'auto';
+            item.dataset.animating = 'false';
+          }, 640);
+
+          return;
+        }
+
+        answer.style.height = `${answer.scrollHeight}px`;
+
+        requestAnimationFrame(() => {
+          item.setAttribute('data-closing', '');
+          answer.style.height = '0px';
+        });
+
+        window.setTimeout(() => {
+          item.removeAttribute('open');
+          item.removeAttribute('data-closing');
+          item.dataset.animating = 'false';
+          answer.style.height = '0px';
+        }, 640);
+      });
+    });
+  };
+
+  initFaqCtaReveal();
+  initFaqAccordion();
+
+  document.addEventListener('astro:page-load', () => {
+    initFaqCtaReveal();
+    initFaqAccordion();
+  });
+</script>

@@ -1,0 +1,151 @@
+
+---
+// src/components/Features.astro
+// Sección de características (Features)
+---
+<section class="feature-section bg-black py-12 relative z-30 mt-12 mx-4 md:mx-8 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.7)] border border-plata/20 overflow-hidden opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+  
+  {/* =========================================
+      VISTA ESCRITORIO: Grid de 4 columnas
+      ========================================= */}
+  <div class="hidden md:grid max-w-7xl mx-auto px-8 grid-cols-4 gap-8">
+    
+    <div class="flex flex-col items-center text-center gap-3 group">
+      <div class="w-16 h-16 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)] group-hover:scale-110 transition-transform">
+        <span class="material-symbols-outlined text-[32px]">bolt</span>
+      </div>
+      <span class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Atención Rápida</span>
+    </div>
+
+    <div class="flex flex-col items-center text-center gap-3 group">
+      <div class="w-16 h-16 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)] group-hover:scale-110 transition-transform">
+        <span class="material-symbols-outlined text-[32px]">home_repair_service</span>
+      </div>
+      <span class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Servicio a Domicilio</span>
+    </div>
+
+    <div class="flex flex-col items-center text-center gap-3 group">
+      <div class="w-16 h-16 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)] group-hover:scale-110 transition-transform">
+        <span class="material-symbols-outlined text-[32px]">distance</span>
+      </div>
+      <span class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Cobertura Local</span>
+    </div>
+
+    <div class="flex flex-col items-center text-center gap-3 group">
+      <div class="w-16 h-16 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)] group-hover:scale-110 transition-transform">
+        <span class="material-symbols-outlined text-[32px]">person_check</span>
+      </div>
+      <span class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Atención Personalizada</span>
+    </div>
+
+  </div>
+
+  {/* =========================================
+      VISTA MÓVIL: Slider Infinito (2 por vista)
+      ========================================= */}
+  <div class="block md:hidden relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-8 before:bg-gradient-to-r before:from-negro-carbon before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-8 after:bg-gradient-to-l after:from-negro-carbon after:to-transparent">
+    <div class="flex w-max animate-infinite-features">
+      
+      {/* GRUPO 1 */}
+      <div class="flex">
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">bolt</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Atención Rápida</span>
+        </div>
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">home_repair_service</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Servicio a Domicilio</span>
+        </div>
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">distance</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Cobertura Local</span>
+        </div>
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">person_check</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Atención Personalizada</span>
+        </div>
+      </div>
+
+      {/* GRUPO 2 (Duplicado exacto para crear el bucle sin cortes) */}
+      <div class="flex" aria-hidden="true">
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">bolt</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Atención Rápida</span>
+        </div>
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">home_repair_service</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Servicio a Domicilio</span>
+        </div>
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">distance</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Cobertura Local</span>
+        </div>
+        <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
+          <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
+            <span class="material-symbols-outlined text-[28px]">person_check</span>
+          </div>
+          <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Atención Personalizada</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Calculamos exactamente 2 elementos por vista en móvil 
+     (100vw menos los márgenes del contenedor mx-4 = 2rem) dividido entre 2 */
+  .feature-mobile-item {
+    width: calc((100vw - 2rem) / 2);
+    flex-shrink: 0;
+  }
+
+  /* Animación del slider infinito */
+  @keyframes scroll-features {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Se desplaza exactamente 1 grupo entero */
+  }
+
+  .animate-infinite-features {
+    animation: scroll-features 12s linear infinite;
+  }
+</style>
+
+<script>
+  // Script para animar la entrada global de toda la sección (fade-in-up)
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.feature-section');
+
+    if (section) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Cuando la sección entra en pantalla, quitamos la opacidad 0 y el desplazamiento
+            section.classList.remove('opacity-0', 'translate-y-10');
+            section.classList.add('opacity-100', 'translate-y-0');
+            observer.unobserve(section);
+          }
+        });
+      }, {
+        threshold: 0.2 // Se activa cuando el 20% es visible
+      });
+
+      observer.observe(section);
+    }
+  });
+</script>
+

@@ -1,0 +1,109 @@
+---
+// src/components/Coverage.astro
+---
+
+<section class="py-24 bg-carbon border-y border-plata/5" id="cobertura">
+  <div class="px-4 md:px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+    
+    {/* Contenedor de Texto y Lista */}
+    <div data-coverage-reveal style="--coverage-delay: 0ms;" class="w-full md:w-1/2 space-y-6">
+      <h2 data-coverage-reveal style="--coverage-delay: 120ms;" class="font-russo text-4xl md:text-5xl text-blanco-tecnico uppercase drop-shadow-md">
+        Estamos donde nos necesite
+      </h2>
+      <p data-coverage-reveal style="--coverage-delay: 220ms;" class="font-montserrat text-lg text-plata font-light leading-relaxed">
+        Atendemos Zipaquirá, Cogua y municipios cercanos las 24 horas del día. Nuestras unidades móviles están distribuidas estratégicamente para llegar en tiempo récord.
+      </p>
+      
+      <ul class="space-y-4 pt-4">
+        <li data-coverage-reveal style="--coverage-delay: 320ms;" class="flex items-center gap-4 text-blanco-tecnico font-montserrat text-lg group">
+          <span class="material-symbols-outlined text-naranja-dorado drop-shadow-[0_0_8px_rgba(255,152,0,0.4)] group-hover:scale-110 transition-transform">check_circle</span>
+          <span>Zipaquirá (Casco Urbano y Veredas)</span>
+        </li>
+        <li data-coverage-reveal style="--coverage-delay: 420ms;" class="flex items-center gap-4 text-blanco-tecnico font-montserrat text-lg group">
+          <span class="material-symbols-outlined text-naranja-dorado drop-shadow-[0_0_8px_rgba(255,152,0,0.4)] group-hover:scale-110 transition-transform">check_circle</span>
+          <span>Cogua y Nemocón</span>
+        </li>
+        <li data-coverage-reveal style="--coverage-delay: 520ms;" class="flex items-center gap-4 text-blanco-tecnico font-montserrat text-lg group">
+          <span class="material-symbols-outlined text-naranja-dorado drop-shadow-[0_0_8px_rgba(255,152,0,0.4)] group-hover:scale-110 transition-transform">check_circle</span>
+          <span>Sopó y Cajicá</span>
+        </li>
+      </ul>
+    </div>
+
+    {/* Contenedor de Mapa / Imagen */}
+ <div data-coverage-reveal style="--coverage-delay: 260ms;" class="w-full md:w-1/2 h-[400px] bg-negro-carbon rounded-2xl overflow-hidden border border-plata/10 shadow-[0_10px_40px_rgba(0,0,0,0.6)] relative group">
+      {/* Overlay oscuro sutil para integrar el mapa con el diseño sin perder color */}
+      <div class="absolute inset-0 bg-negro-carbon/5 z-10 pointer-events-none transition-colors duration-500"></div>
+      <img 
+        alt="Mapa de cobertura" 
+        class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
+        data-location="Zipaquira" 
+        src="/cobertura-Cerrajería-mi-llave-ob.jpg" 
+      />
+    </div>
+
+  </div>
+</section>
+
+<style>
+  [data-coverage-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 44px, 0) scale(0.975);
+    filter: blur(10px);
+    transition:
+      opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 880ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 880ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--coverage-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-coverage-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-coverage-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const initCoverageReveal = () => {
+    const elements = document.querySelectorAll('[data-coverage-reveal]');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  };
+
+  initCoverageReveal();
+
+  document.addEventListener('astro:page-load', initCoverageReveal);
+</script>

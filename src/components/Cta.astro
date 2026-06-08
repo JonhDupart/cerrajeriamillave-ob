@@ -1,0 +1,102 @@
+---
+
+// src/components/Cta.astro
+---
+<section class="relative py-32 overflow-hidden border-t border-plata/5" id="contacto">
+  {/* Fondo con imagen oscura y overlay */}
+  <div data-cta-reveal style="--cta-delay: 0ms;" class="absolute inset-0 z-0 bg-grafito">
+    <img 
+      class="w-full h-full object-cover blur-[2px] opacity-30 mix-blend-luminosity" 
+      data-alt="A cinematic low-angle shot of a locksmith's van parked in a dark cobblestone street of a colonial town. The van is subtly branded with the 'Mi Llave' logo and features warm amber emergency lights that illuminate the surrounding area. The background shows the silhouettes of historic arches and buildings under a starry sky, conveying a sense of nighttime reliability and local presence." 
+      src="/ruta-imagen-van.jpg" 
+    />
+    {/* Gradiente adicional para asegurar la legibilidad del texto */}
+    <div class="absolute inset-0 bg-gradient-to-t from-grafito via-grafito/80 to-grafito/40"></div>
+  </div>
+
+  <div class="relative z-10 px-4 md:px-8 max-w-4xl mx-auto text-center space-y-8">
+    <h2 data-cta-reveal style="--cta-delay: 120ms;" class="font-russo text-4xl md:text-5xl lg:text-6xl text-blanco-tecnico uppercase drop-shadow-[0_5px_15px_rgba(0,0,0,1)]">
+      ¿Necesita un cerrajero de confianza ahora mismo?
+    </h2>
+    <p data-cta-reveal style="--cta-delay: 220ms;" class="font-montserrat text-xl text-plata font-light max-w-2xl mx-auto drop-shadow-md">
+      No arriesgue su seguridad. Llame a los profesionales. Estamos listos para ayudarle en Zipaquirá y alrededores.
+    </p>
+    
+    <div data-cta-reveal style="--cta-delay: 320ms;" class="flex flex-wrap justify-center gap-6 pt-8">
+      {/* Botón de Llamada - Estilo Marca Principal */}
+      <a class="flex items-center gap-3 px-18 py-4 bg-naranja-dorado text-negro-carbon rounded-full font-bebas text-xl tracking-wide hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(255,152,0,0.4)] hover:shadow-[0_0_50px_rgba(255,152,0,0.6)] animate-pulse-glow" href="tel:+573102342263">
+        <span class="material-symbols-outlined text-[27px]">phone_forwarded</span>
+        Llamar al  3102342263
+      </a>
+      
+      {/* Botón de WhatsApp - Mantiene el verde pero usa la tipografía */}
+      <a class="flex items-center gap-3 px-8 py-4 bg-[#25D366] text-blanco-tecnico rounded-full font-bebas text-xl tracking-wide hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(37,211,102,0.3)] hover:shadow-[0_0_50px_rgba(37,211,102,0.5)]"  href="https://wa.me/573247355486?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20hacer%20una%20consulta." target="_blank">
+        <span class="material-symbols-outlined text-[27px]">chat</span>
+        WhatsApp 24/7
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  [data-cta-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 44px, 0) scale(0.975);
+    filter: blur(10px);
+    transition:
+      opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 880ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 880ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--cta-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-cta-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-cta-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const initCtaReveal = () => {
+    const elements = document.querySelectorAll('[data-cta-reveal]');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  };
+
+  initCtaReveal();
+
+  document.addEventListener('astro:page-load', initCtaReveal);
+</script>

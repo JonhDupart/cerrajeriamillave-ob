@@ -1,0 +1,212 @@
+---
+// src/components/Location.astro
+---
+
+<section class="py-24 bg-grafito relative border-t border-plata/10 overflow-hidden" id="ubicacion">
+  {/* Gradiente de fondo sutil */}
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-naranja-dorado/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      
+      {/* ==========================================
+          COLUMNA IZQUIERDA: MAPA E INFORMACIÓN
+          ========================================== */}
+      <div class="space-y-6">
+        {/* Encabezados */}
+        <div data-location-reveal style="--location-delay: 0ms;">
+          <span class="font-bebas text-naranja-dorado tracking-widest text-lg uppercase drop-shadow-md">Sede Principal</span>
+          <h2 class="font-russo text-5xl md:text-6xl lg:text-7xl text-blanco-tecnico leading-none mt-2 uppercase drop-shadow-lg">
+            Visítanos en <br/>
+            <span class="text-plata/80">Zipaquirá</span>
+          </h2>
+        </div>
+
+        {/* Mapa de Google */}
+        <div data-location-reveal style="--location-delay: 140ms;" class="w-full h-64 md:h-80 bg-negro-carbon rounded-3xl overflow-hidden border border-plata/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative group">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31792.830606992915!2d-74.01523456381667!3d5.025686036100147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e40702d71b3e8fb%3A0xc68297b5873bf358!2sZipaquir%C3%A1%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+          ></iframe>
+        </div>
+
+        {/* Tarjetas de Info (Ubicación y Horarios) */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Tarjeta Ubicación */}
+          <div data-location-reveal style="--location-delay: 260ms;" class="bg-negro-carbon p-6 rounded-2xl border border-plata/10 shadow-lg hover:border-naranja-dorado/30 transition-colors">
+            <span class="material-symbols-outlined text-naranja-dorado mb-3 text-[28px]">location_on</span>
+            <h3 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-1">Ubicación</h3>
+            <p class="font-montserrat text-cromo-medio font-light text-sm leading-relaxed">
+              Zipaquirá, Cundinamarca.<br/>
+              Servicio a domicilio en toda la zona.
+            </p>
+          </div>
+          
+          {/* Tarjeta Horarios */}
+          <div data-location-reveal style="--location-delay: 360ms;" class="bg-negro-carbon p-6 rounded-2xl border border-plata/10 shadow-lg hover:border-naranja-dorado/30 transition-colors">
+            <span class="material-symbols-outlined text-naranja-dorado mb-3 text-[28px]">schedule</span>
+            <h3 class="font-bebas text-2xl tracking-wide text-blanco-tecnico mb-1">Horarios</h3>
+            <p class="font-montserrat text-cromo-medio font-light text-sm leading-relaxed">
+              Lunes a Domingo:<br/>
+              <span class="text-[#25D366] font-medium">Disponible 24 Horas</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ==========================================
+          COLUMNA DERECHA: REDES, IMÁGENES Y CTA
+          ========================================== */}
+      <div class="flex flex-col h-full justify-between gap-8 pt-4 lg:pt-0">
+        
+        {/* Botones de Redes Sociales */}
+        <div class="space-y-4">
+          <h3 data-location-reveal style="--location-delay: 100ms;" class="font-bebas text-2xl text-plata tracking-widest uppercase mb-1 opacity-80">Síguenos en nuestras redes</h3>
+          
+          <a data-location-reveal style="--location-delay: 220ms;" href="https://www.facebook.com/profile.php?id=100052906641769" target="_blank" class="flex items-center justify-between p-5 bg-negro-carbon rounded-2xl border border-plata/10 hover:border-naranja-dorado/50 hover:bg-naranja-dorado/5 transition-all duration-300 group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2] group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </div>
+              <div>
+                <p class="font-bebas text-2xl text-blanco-tecnico tracking-wide">Facebook</p>
+                <p class="font-montserrat text-xs text-cromo-medio">Nuestros trabajos y novedades</p>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-cromo-medio group-hover:text-naranja-dorado group-hover:translate-x-1 transition-all">arrow_forward</span>
+          </a>
+
+          <a data-location-reveal style="--location-delay: 320ms;" href="https://www.instagram.com/mi_llave_ob/" target="_blank" class="flex items-center justify-between p-5 bg-negro-carbon rounded-2xl border border-plata/10 hover:border-naranja-dorado/50 hover:bg-naranja-dorado/5 transition-all duration-300 group shadow-lg">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-[#E1306C]/10 flex items-center justify-center text-[#E1306C] group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </div>
+              <div>
+                <p class="font-bebas text-2xl text-blanco-tecnico tracking-wide">Instagram</p>
+                <p class="font-montserrat text-xs text-cromo-medio">Galería de servicios en vivo</p>
+              </div>
+              
+            </div>
+            <span class="material-symbols-outlined text-cromo-medio group-hover:text-naranja-dorado group-hover:translate-x-1 transition-all">arrow_forward</span>
+          </a>
+         <a data-location-reveal style="--location-delay: 420ms;" href="https://www.tiktok.com/@mi.llave.o.b" target="_blank" class="flex items-center justify-between p-5 bg-negro-carbon rounded-2xl border border-plata/10 hover:border-naranja-dorado/50 hover:bg-naranja-dorado/5 transition-all duration-300 group shadow-lg">
+  <div class="flex items-center gap-4">
+    {/* Contenedor del ícono con colores neutros (Blanco) adaptados para TikTok en fondo oscuro */}
+    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+      </svg>
+    </div>
+    <div>
+      <p class="font-bebas text-2xl text-blanco-tecnico tracking-wide">TikTok</p>
+      <p class="font-montserrat text-xs text-cromo-medio">Galería de servicios en vivo</p>
+    </div>
+  </div>
+  <span class="material-symbols-outlined text-cromo-medio group-hover:text-naranja-dorado group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+        </div>
+
+        {/* Galería de 3 Imágenes Inferiores */}
+        <div class="grid grid-cols-3 gap-3 md:gap-4 mt-0">
+          <img 
+            data-location-reveal
+            style="--location-delay: 520ms;"
+            src="/porquemillave.jpg" 
+            alt="Trabajo de cerrajería 1" 
+            class="w-full aspect-square object-cover rounded-xl md:rounded-2xl border border-plata/10 shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+          <img 
+            data-location-reveal
+            style="--location-delay: 620ms;"
+            src="/porquemillave.jpg" 
+            alt="Trabajo de cerrajería 2" 
+            class="w-full aspect-square object-cover rounded-xl md:rounded-2xl border border-plata/10 shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+          <img 
+            data-location-reveal
+            style="--location-delay: 720ms;"
+            src="/porquemillave.jpg" 
+            alt="Trabajo de cerrajería 3" 
+            class="w-full aspect-square object-cover rounded-xl md:rounded-2xl border border-plata/10 shadow-lg hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
+        {/* Gran Botón de Agendar */}
+        <a data-location-reveal style="--location-delay: 820ms;"  href="https://wa.me/573247355486?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20hacer%20una%20consulta." target="_blank" class="w-full mt-4 flex items-center justify-center gap-3 py-4 bg-blanco-tecnico text-negro-carbon rounded-2xl font-bebas text-xl tracking-wide hover:bg-naranja-dorado hover:text-negro-carbon hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,152,0,0.4)]">
+          <span class="material-symbols-outlined text-[27px]">chat</span>
+          AGENDAR POR WHATSAPP
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  [data-location-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 44px, 0) scale(0.975);
+    filter: blur(10px);
+    transition:
+      opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 880ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 880ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--location-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-location-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-location-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const initLocationReveal = () => {
+    const elements = document.querySelectorAll('[data-location-reveal]');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  };
+
+  initLocationReveal();
+
+  document.addEventListener('astro:page-load', initLocationReveal);
+</script>

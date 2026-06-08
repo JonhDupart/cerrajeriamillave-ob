@@ -1,0 +1,224 @@
+---
+// src/components/Testimonials.astro
+---
+
+<section class="py-24 bg-grafito overflow-hidden relative border-t border-plata/5" id="testimonios">
+  {/* Gradientes laterales para suavizar la entrada y salida del slider */}
+  <div class="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-grafito to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-grafito to-transparent z-10 pointer-events-none"></div>
+
+  <h2 data-testimonials-reveal style="--testimonials-delay: 0ms;" class="font-russo text-4xl md:text-5xl text-blanco-tecnico text-center mb-16 uppercase drop-shadow-md">
+    Lo que dicen nuestros clientes
+  </h2>
+
+  {/* Contenedor principal del Slider */}
+  <div data-testimonials-reveal style="--testimonials-delay: 160ms;" class="relative w-full mx-auto flex overflow-hidden">
+    {/* Pista del Slider (Track) - Animación aplicada aquí */}
+    <div class="flex w-max animate-infinite-scroll hover:[animation-play-state:paused] gap-6 px-3">
+      
+      {/* --- GRUPO ORIGINAL DE TESTIMONIOS --- */}
+      
+      {/* Testimonio 1 */}
+      <div class="w-[85vw] sm:w-[350px] md:w-[400px] bg-negro-carbon p-8 rounded-2xl border border-plata/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-colors hover:border-naranja-dorado/50">
+        <div>
+          <div class="flex text-naranja-dorado mb-4 drop-shadow-[0_0_5px_rgba(255,152,0,0.3)]">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic font-montserrat text-plata font-light mb-6 leading-relaxed">
+            "Excelente servicio. Se me quedaron las llaves dentro del carro un domingo a las 11 PM y llegaron en 15 minutos. El técnico muy profesional."
+          </p>
+        </div>
+        <div>
+          <p class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Andrés Rodríguez</p>
+          <p class="font-montserrat text-sm text-cromo-medio">Cliente Residencial</p>
+        </div>
+      </div>
+
+      {/* Testimonio 2 */}
+      <div class="w-[85vw] sm:w-[350px] md:w-[400px] bg-negro-carbon p-8 rounded-2xl border border-plata/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-colors hover:border-naranja-dorado/50">
+        <div>
+          <div class="flex text-naranja-dorado mb-4 drop-shadow-[0_0_5px_rgba(255,152,0,0.3)]">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic font-montserrat text-plata font-light mb-6 leading-relaxed">
+            "Instalaron unas chapas de seguridad en mi negocio. Muy cumplidos y el precio fue el más justo que encontré en Zipaquirá. Recomendados."
+          </p>
+        </div>
+        <div>
+          <p class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Marina Jiménez</p>
+          <p class="font-montserrat text-sm text-cromo-medio">Propietaria Local Comercial</p>
+        </div>
+      </div>
+
+      {/* Testimonio 3 */}
+      <div class="w-[85vw] sm:w-[350px] md:w-[400px] bg-negro-carbon p-8 rounded-2xl border border-plata/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-colors hover:border-naranja-dorado/50">
+        <div>
+          <div class="flex text-naranja-dorado mb-4 drop-shadow-[0_0_5px_rgba(255,152,0,0.3)]">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic font-montserrat text-plata font-light mb-6 leading-relaxed">
+            "Muy rápidos y honestos. Me abrieron la casa sin dañar la chapa, lo cual me ahorró mucho dinero. Muy agradecido con Mi Llave."
+          </p>
+        </div>
+        <div>
+          <p class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Carlos Duarte</p>
+          <p class="font-montserrat text-sm text-cromo-medio">Cliente Particular</p>
+        </div>
+      </div>
+
+      {/* --- GRUPO DUPLICADO (Para crear la ilusión de bucle infinito) --- */}
+      
+      {/* Testimonio 1 (Duplicado) */}
+      <div class="w-[85vw] sm:w-[350px] md:w-[400px] bg-negro-carbon p-8 rounded-2xl border border-plata/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-colors hover:border-naranja-dorado/50" aria-hidden="true">
+        <div>
+          <div class="flex text-naranja-dorado mb-4">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic font-montserrat text-plata font-light mb-6 leading-relaxed">
+            "Excelente servicio. Se me quedaron las llaves dentro del carro un domingo a las 11 PM y llegaron en 15 minutos. El técnico muy profesional."
+          </p>
+        </div>
+        <div>
+          <p class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Andrés Rodríguez</p>
+          <p class="font-montserrat text-sm text-cromo-medio">Cliente Residencial</p>
+        </div>
+      </div>
+
+      {/* Testimonio 2 (Duplicado) */}
+      <div class="w-[85vw] sm:w-[350px] md:w-[400px] bg-negro-carbon p-8 rounded-2xl border border-plata/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-colors hover:border-naranja-dorado/50" aria-hidden="true">
+        <div>
+          <div class="flex text-naranja-dorado mb-4">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic font-montserrat text-plata font-light mb-6 leading-relaxed">
+            "Instalaron unas chapas de seguridad en mi negocio. Muy cumplidos y el precio fue el más justo que encontré en Zipaquirá. Recomendados."
+          </p>
+        </div>
+        <div>
+          <p class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Marina Jiménez</p>
+          <p class="font-montserrat text-sm text-cromo-medio">Propietaria Local Comercial</p>
+        </div>
+      </div>
+
+      {/* Testimonio 3 (Duplicado) */}
+      <div class="w-[85vw] sm:w-[350px] md:w-[400px] bg-negro-carbon p-8 rounded-2xl border border-plata/10 shadow-[0_5px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-colors hover:border-naranja-dorado/50" aria-hidden="true">
+        <div>
+          <div class="flex text-naranja-dorado mb-4">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="italic font-montserrat text-plata font-light mb-6 leading-relaxed">
+            "Muy rápidos y honestos. Me abrieron la casa sin dañar la chapa, lo cual me ahorró mucho dinero. Muy agradecido con Mi Llave."
+          </p>
+        </div>
+        <div>
+          <p class="font-bebas text-2xl tracking-wide text-blanco-tecnico">Carlos Duarte</p>
+          <p class="font-montserrat text-sm text-cromo-medio">Cliente Particular</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  [data-testimonials-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 44px, 0) scale(0.975);
+    filter: blur(10px);
+    transition:
+      opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 880ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 880ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--testimonials-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-testimonials-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-testimonials-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+
+  /* Animación personalizada para el desplazamiento infinito */
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Se desplaza exactamente la mitad del contenedor (el grupo original) más el gap para que el bucle sea perfecto */
+      transform: translateX(calc(-50% - 0.75rem));
+    }
+  }
+
+  .animate-infinite-scroll {
+    /* 30s determina la velocidad. Aumenta para más lento, disminuye para más rápido */
+    animation: infinite-scroll 30s linear infinite;
+  }
+</style>
+
+<script>
+  const initTestimonialsReveal = () => {
+    const elements = document.querySelectorAll('[data-testimonials-reveal]');
+
+    if (!elements.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '0px 0px -8% 0px',
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  };
+
+  initTestimonialsReveal();
+
+  document.addEventListener('astro:page-load', initTestimonialsReveal);
+</script>
