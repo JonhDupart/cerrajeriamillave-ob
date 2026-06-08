@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://millaveob.com.co/sitemap-index.xml
+Sitemap: https://cerrajeriamillave-ob.com/sitemap-index.xml

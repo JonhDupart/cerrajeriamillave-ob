@@ -21,6 +21,7 @@ const {
 } = Astro.props;
 
 const siteURL = Astro.site ?? new URL("https://cerrajeriamillave-ob.com");
+const businessURL = siteURL.origin;
 const currentURL = new URL(Astro.url.pathname, siteURL);
 const canonicalURL = canonical ? new URL(canonical, siteURL) : currentURL;
 const absoluteImageURL = new URL(image, siteURL);
@@ -30,7 +31,6 @@ const llmsURL = new URL("/llms.txt", siteURL);
 
 const businessName = "Mi Llave O.B";
 const businessLegalName = "Mi Llave O.B Cerrajería";
-const businessURL = "https://cerrajeriamillave-ob.com";
 const businessPhone = "+573102342263";
 const businessPhoneReadable = "310 234 2263";
 const businessAddress = "Cra 7 # 23-72 vía Cogua";
@@ -229,7 +229,8 @@ const structuredData = {
         "latitude": businessLatitude,
         "longitude": businessLongitude
       },
-          "hasMap": `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(businessAddress + ', ' + businessCity + ', ' + businessRegion + ', Colombia')}`,      "openingHours": "Mo-Su 00:00-23:59",
+      "hasMap": `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(businessAddress + ', ' + businessCity + ', ' + businessRegion + ', Colombia')}`,
+      "openingHours": "Mo-Su 00:00-23:59",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
