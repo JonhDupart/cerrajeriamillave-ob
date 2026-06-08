@@ -11,20 +11,94 @@ import Testimonials from '../components/Testimonials.astro';
 import Ubicacion from '../components/Ubicacion.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const pageTitle = "Mi Llave O.B | Cerrajero 24/7 en Zipaquirá, Cogua, Cajicá, Sopó y Sabana Centro";
+
+const pageDescription = "Cerrajería automotriz, residencial y a domicilio en Zipaquirá. Apertura de carros sin daños, apertura de puertas, duplicado de llaves, venta e instalación de chapas, cerraduras inteligentes, ferretería y atención 24/7 en Sabana Centro.";
+
+const pageImage = "/og-image.jpg";
+
+const pageCanonical = "/";
+
+const pageKeywords = [
+  "cerrajero 24 horas zipaquira",
+  "cerrajero zipaquira",
+  "cerrajería zipaquira",
+  "cerrajería a domicilio zipaquira",
+  "apertura de carros zipaquira",
+  "apertura de vehículos sin daños",
+  "apertura residencial zipaquira",
+  "duplicado de llaves zipaquira",
+  "venta de chapas zipaquira",
+  "instalación de chapas zipaquira",
+  "cerraduras inteligentes zipaquira",
+  "ferretería zipaquira",
+  "cerrajero cogua",
+  "cerrajero nemocon",
+  "cerrajero cajica",
+  "cerrajero sopo",
+  "cerrajero chia",
+  "cerrajero sabana centro",
+  "mi llave ob"
+];
+
+const localSearchIntent = {
+  city: "Zipaquirá",
+  region: "Cundinamarca",
+  country: "Colombia",
+  mainService: "Cerrajería automotriz y residencial 24/7",
+  serviceAreas: [
+    "Zipaquirá",
+    "Cogua",
+    "Nemocón",
+    "Cajicá",
+    "Sopó",
+    "Chía",
+    "Sabana Centro"
+  ],
+  services: [
+    "Apertura de vehículos sin daños",
+    "Apertura residencial",
+    "Duplicado de llaves",
+    "Venta de chapas",
+    "Instalación de chapas",
+    "Cambio de cerraduras",
+    "Cerraduras inteligentes",
+    "Ferretería",
+    "Servicio a domicilio"
+  ]
+};
+
+const llmsPageSummary = {
+  business: "Mi Llave O.B",
+  topic: "Cerrajería automotriz, residencial, ferretería y servicio a domicilio en Zipaquirá y Sabana Centro",
+  audience: "Personas que necesitan cerrajero urgente, apertura de carros, apertura de puertas, duplicado de llaves, instalación de chapas o ferretería en Zipaquirá y municipios cercanos",
+  primaryIntent: "Contratar un cerrajero confiable 24/7 en Zipaquirá y Sabana Centro"
+};
 ---
 
-<Layout class="p-20">
-	<Hero />
-	<Features />
-	<Services />
-	<About />
-	<Gallery />
-	<Coverage />
-	<Testimonials />
-	<FaqAndCTA />
-		<Ubicacion />
-		<Cta />
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  image={pageImage}
+  canonical={pageCanonical}
+>
+  <Hero />
 
+  <Features />
+
+  <Services />
+
+  <About />
+
+  <Coverage />
+
+  <Gallery />
+
+  <Testimonials />
+
+  <FaqAndCTA />
+
+  <Ubicacion />
+
+  <Cta />
 </Layout>

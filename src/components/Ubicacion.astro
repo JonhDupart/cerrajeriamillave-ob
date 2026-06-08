@@ -138,10 +138,21 @@
         </div>
 
         {/* Gran Botón de Agendar */}
-        <a data-location-reveal style="--location-delay: 820ms;"  href="https://wa.me/573247355486?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20hacer%20una%20consulta." target="_blank" class="w-full mt-4 flex items-center justify-center gap-3 py-4 bg-blanco-tecnico text-negro-carbon rounded-2xl font-bebas text-xl tracking-wide hover:bg-naranja-dorado hover:text-negro-carbon hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,152,0,0.4)]">
-          <span class="material-symbols-outlined text-[27px]">chat</span>
-          AGENDAR POR WHATSAPP
-        </a>
+       <a data-location-reveal style="--location-delay: 820ms;" href="https://wa.me/573247355486?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20hacer%20una%20consulta." target="_blank" class="group relative overflow-hidden w-full mt-4 flex items-center justify-center p-[2px] rounded-2xl bg-negro-carbon hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,152,0,0.6)]">
+  
+  {/* 1. Borde animado giratorio (Efecto Shiny puro con Tailwind) */}
+  <div class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#121212_0%,#FF9800_50%,#121212_100%)] opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+  {/* 2. Fondo interno para crear la ilusión de borde (se oculta un poco en hover para más brillo) */}
+  <div class="absolute inset-[2px] rounded-[14px] bg-negro-carbon group-hover:bg-grafito transition-colors duration-500 z-0"></div>
+
+  {/* 3. Contenido Frontal (Icono y Texto) */}
+  <span class="relative z-10 flex items-center justify-center gap-3 py-4 font-bebas text-xl tracking-wide text-blanco-tecnico w-full transition-all duration-300 group-hover:text-naranja-dorado group-hover:drop-shadow-[0_0_12px_rgba(255,152,0,0.6)]">
+    <span class="material-symbols-outlined text-[27px] transition-transform duration-300 group-hover:scale-110">chat</span>
+    AGENDAR POR WHATSAPP
+  </span>
+
+</a>
 
       </div>
     </div>
