@@ -1,23 +1,24 @@
 ---
+
 // src/layouts/Layout.astro
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-  canonical?: string;
-  noindex?: boolean;
+title?: string;
+description?: string;
+image?: string;
+canonical?: string;
+noindex?: boolean;
 }
 
 const {
-  title = "Mi Llave O.B | Cerrajería Automotriz y Residencial 24/7 en Zipaquirá",
-  description = "Servicio de cerrajería urgente en Zipaquirá y Sabana Centro. Especialistas en apertura de carros sin daños, cerrajería residencial, venta e instalación de chapas de alta seguridad y ferretería.",
-  image = "/og-image.jpg",
-  canonical,
-  noindex = false,
+title = "Mi Llave O.B | Cerrajería Automotriz y Residencial 24/7 en Zipaquirá",
+description = "Servicio de cerrajería urgente en Zipaquirá y Sabana Centro. Especialistas en apertura de carros sin daños, cerrajería residencial, venta e instalación de chapas de alta seguridad y ferretería.",
+image = "/og-image.jpg",
+canonical,
+noindex = false,
 } = Astro.props;
 
 const siteURL = Astro.site ?? new URL("https://cerrajeriamillave-ob.com");
@@ -28,6 +29,13 @@ const absoluteImageURL = new URL(image, siteURL);
 const logoURL = new URL("/favicon.svg", siteURL);
 const faviconURL = new URL("/favicon.svg", siteURL);
 const llmsURL = new URL("/llms.txt", siteURL);
+const imageExtension = absoluteImageURL.pathname.split(".").pop()?.toLowerCase();
+const ogImageType =
+imageExtension === "png"
+? "image/png"
+: imageExtension === "webp"
+? "image/webp"
+: "image/jpeg";
 
 const businessName = "Mi Llave O.B";
 const businessLegalName = "Mi Llave O.B Cerrajería";
@@ -41,383 +49,384 @@ const businessLatitude = 5.0238;
 const businessLongitude = -74.0028;
 
 const robotsContent = noindex
-  ? "noindex, nofollow"
-  : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+? "noindex, nofollow"
+: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 
 const keywords = [
-  "cerrajero zipaquira",
-  "cerrajería zipaquira",
-  "cerrajero 24 horas zipaquira",
-  "cerrajero a domicilio zipaquira",
-  "cerrajería automotriz zipaquira",
-  "apertura de carros zipaquira",
-  "apertura de vehículos sin daños",
-  "apertura residencial zipaquira",
-  "duplicado de llaves zipaquira",
-  "venta de chapas zipaquira",
-  "instalación de chapas zipaquira",
-  "cerraduras inteligentes zipaquira",
-  "ferretería zipaquira",
-  "cerrajero cogua",
-  "cerrajero nemocon",
-  "cerrajero cajica",
-  "cerrajero sopo",
-  "cerrajero chia",
-  "cerrajero sabana centro",
-  "mi llave ob"
+"cerrajero zipaquira",
+"cerrajería zipaquira",
+"cerrajero 24 horas zipaquira",
+"cerrajero a domicilio zipaquira",
+"cerrajería automotriz zipaquira",
+"apertura de carros zipaquira",
+"apertura de vehículos sin daños",
+"apertura residencial zipaquira",
+"duplicado de llaves zipaquira",
+"venta de chapas zipaquira",
+"instalación de chapas zipaquira",
+"cerraduras inteligentes zipaquira",
+"ferretería zipaquira",
+"cerrajero cogua",
+"cerrajero nemocon",
+"cerrajero cajica",
+"cerrajero sopo",
+"cerrajero chia",
+"cerrajero sabana centro",
+"mi llave ob"
 ];
 
 const serviceAreas = [
-  "Zipaquirá",
-  "Cogua",
-  "Nemocón",
-  "Cajicá",
-  "Sopó",
-  "Chía",
-  "Sabana Centro"
+"Zipaquirá",
+"Cogua",
+"Nemocón",
+"Cajicá",
+"Sopó",
+"Chía",
+"Sabana Centro"
 ];
 
 const services = [
-  {
-    name: "Apertura de vehículos sin daños",
-    description: "Apertura técnica de carros y camionetas mediante procedimientos no destructivos y herramientas especializadas.",
-    serviceType: "Cerrajería automotriz"
-  },
-  {
-    name: "Apertura residencial",
-    description: "Apertura de puertas de casas y apartamentos con atención a domicilio en Zipaquirá y municipios cercanos.",
-    serviceType: "Cerrajería residencial"
-  },
-  {
-    name: "Duplicado de llaves",
-    description: "Copias de llaves para chapas residenciales, candados y vehículos con maquinaria de precisión.",
-    serviceType: "Duplicado de llaves"
-  },
-  {
-    name: "Venta e instalación de chapas",
-    description: "Venta e instalación técnica de cerraduras, chapas de seguridad y sistemas de acceso para hogares y negocios.",
-    serviceType: "Instalación de cerraduras"
-  },
-  {
-    name: "Cambio de cerraduras",
-    description: "Cambio de cerraduras, guardas y sistemas de acceso para reforzar la seguridad de viviendas, locales y oficinas.",
-    serviceType: "Seguridad residencial y comercial"
-  },
-  {
-    name: "Cerraduras inteligentes",
-    description: "Venta e instalación de cerraduras inteligentes, sistemas biométricos y soluciones modernas de control de acceso.",
-    serviceType: "Cerraduras inteligentes"
-  },
-  {
-    name: "Ferretería",
-    description: "Venta de herramientas, repuestos, accesorios y artículos de ferretería para reparaciones y proyectos.",
-    serviceType: "Ferretería"
-  },
-  {
-    name: "Servicio de cerrajería a domicilio",
-    description: "Atención móvil para emergencias de cerrajería en Zipaquirá, Cogua, Nemocón, Cajicá, Sopó, Chía y Sabana Centro.",
-    serviceType: "Servicio a domicilio"
-  }
+{
+name: "Apertura de vehículos sin daños",
+description: "Apertura técnica de carros y camionetas mediante procedimientos no destructivos y herramientas especializadas.",
+serviceType: "Cerrajería automotriz"
+},
+{
+name: "Apertura residencial",
+description: "Apertura de puertas de casas y apartamentos con atención a domicilio en Zipaquirá y municipios cercanos.",
+serviceType: "Cerrajería residencial"
+},
+{
+name: "Duplicado de llaves",
+description: "Copias de llaves para chapas residenciales, candados y vehículos con maquinaria de precisión.",
+serviceType: "Duplicado de llaves"
+},
+{
+name: "Venta e instalación de chapas",
+description: "Venta e instalación técnica de cerraduras, chapas de seguridad y sistemas de acceso para hogares y negocios.",
+serviceType: "Instalación de cerraduras"
+},
+{
+name: "Cambio de cerraduras",
+description: "Cambio de cerraduras, guardas y sistemas de acceso para reforzar la seguridad de viviendas, locales y oficinas.",
+serviceType: "Seguridad residencial y comercial"
+},
+{
+name: "Cerraduras inteligentes",
+description: "Venta e instalación de cerraduras inteligentes, sistemas biométricos y soluciones modernas de control de acceso.",
+serviceType: "Cerraduras inteligentes"
+},
+{
+name: "Ferretería",
+description: "Venta de herramientas, repuestos, accesorios y artículos de ferretería para reparaciones y proyectos.",
+serviceType: "Ferretería"
+},
+{
+name: "Servicio de cerrajería a domicilio",
+description: "Atención móvil para emergencias de cerrajería en Zipaquirá, Cogua, Nemocón, Cajicá, Sopó, Chía y Sabana Centro.",
+serviceType: "Servicio a domicilio"
+}
 ];
 
 const faqs = [
-  {
-    question: "¿Cuánto tiempo tardan en llegar a una emergencia?",
-    answer: "En el casco urbano de Zipaquirá el tiempo de respuesta promedio es de 20 minutos. También se atienden zonas cercanas como Cogua, Nemocón, Sopó y Cajicá."
-  },
-  {
-    question: "¿Pueden abrir un carro de alta gama sin dañar la puerta?",
-    answer: "Sí. El servicio usa técnicas de apertura no destructiva y herramientas especializadas para proteger el vehículo durante el procedimiento."
-  },
-  {
-    question: "¿Prestan servicio a domicilio en la madrugada?",
-    answer: "Sí. El servicio de cerrajería a domicilio está disponible 24 horas, todos los días, para emergencias en Zipaquirá y municipios cercanos."
-  },
-  {
-    question: "¿Venden las cerraduras o debo comprarlas por aparte?",
-    answer: "Mi Llave O.B ofrece venta e instalación de cerraduras convencionales, chapas de alta seguridad, cerraduras inteligentes y sistemas biométricos."
-  }
+{
+question: "¿Cuánto tiempo tardan en llegar a una emergencia?",
+answer: "En el casco urbano de Zipaquirá el tiempo de respuesta promedio es de 20 minutos. También se atienden zonas cercanas como Cogua, Nemocón, Sopó y Cajicá."
+},
+{
+question: "¿Pueden abrir un carro de alta gama sin dañar la puerta?",
+answer: "Sí. El servicio usa técnicas de apertura no destructiva y herramientas especializadas para proteger el vehículo durante el procedimiento."
+},
+{
+question: "¿Prestan servicio a domicilio en la madrugada?",
+answer: "Sí. El servicio de cerrajería a domicilio está disponible 24 horas, todos los días, para emergencias en Zipaquirá y municipios cercanos."
+},
+{
+question: "¿Venden las cerraduras o debo comprarlas por aparte?",
+answer: "Mi Llave O.B ofrece venta e instalación de cerraduras convencionales, chapas de alta seguridad, cerraduras inteligentes y sistemas biométricos."
+}
 ];
 
 const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${businessURL}/#website`,
-      "url": businessURL,
-      "name": businessName,
-      "alternateName": [
-        "Mi Llave OB",
-        "Mi Llave O.B Cerrajería",
-        "Cerrajería Mi Llave O.B"
-      ],
-      "description": description,
-      "inLanguage": "es-CO",
-      "publisher": {
-        "@id": `${businessURL}/#organization`
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${canonicalURL.toString()}#webpage`,
-      "url": canonicalURL.toString(),
-      "name": title,
-      "description": description,
-      "inLanguage": "es-CO",
-      "isPartOf": {
-        "@id": `${businessURL}/#website`
-      },
-      "about": {
-        "@id": `${businessURL}/#organization`
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "@id": `${absoluteImageURL.toString()}#primaryimage`,
-        "url": absoluteImageURL.toString(),
-        "contentUrl": absoluteImageURL.toString(),
-        "caption": "Mi Llave O.B cerrajería automotriz y residencial en Zipaquirá"
-      },
-      "breadcrumb": {
-        "@id": `${canonicalURL.toString()}#breadcrumb`
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonicalURL.toString()}#breadcrumb`,
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Inicio",
-          "item": businessURL
-        }
-      ]
-    },
-    {
-      "@type": [
-        "Organization",
-        "LocalBusiness",
-        "Locksmith",
-        "HardwareStore"
-      ],
-      "@id": `${businessURL}/#organization`,
-      "name": businessName,
-      "legalName": businessLegalName,
-      "url": businessURL,
-      "logo": {
-        "@type": "ImageObject",
-        "@id": `${logoURL.toString()}#logo`,
-        "url": logoURL.toString(),
-        "contentUrl": logoURL.toString(),
-        "caption": "Logo de Mi Llave O.B"
-      },
-      "image": [
-        absoluteImageURL.toString()
-      ],
-      "description": "Cerrajería profesional en Zipaquirá. Apertura técnica de vehículos y residencias, duplicado de llaves, venta e instalación de chapas de alta seguridad, cerraduras inteligentes y artículos de ferretería con atención a domicilio.",
-      "telephone": businessPhone,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": businessAddress,
-        "addressLocality": businessCity,
-        "addressRegion": businessRegion,
-        "addressCountry": businessCountry
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": businessLatitude,
-        "longitude": businessLongitude
-      },
-      "hasMap": `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(businessAddress + ', ' + businessCity + ', ' + businessRegion + ', Colombia')}`,
-      "openingHours": "Mo-Su 00:00-23:59",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "00:00",
-          "closes": "23:59"
-        }
-      ],
-      "areaServed": serviceAreas.map((area) => ({
-        "@type": area === "Sabana Centro" ? "AdministrativeArea" : "City",
-        "name": area
-      })),
-      "knowsAbout": [
-        "Cerrajería automotriz",
-        "Cerrajería residencial",
-        "Apertura de vehículos sin daños",
-        "Duplicado de llaves",
-        "Cambio de cerraduras",
-        "Instalación de chapas",
-        "Cerraduras inteligentes",
-        "Ferretería",
-        "Servicio a domicilio"
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": businessPhone,
-          "contactType": "customer service",
-          "areaServed": "CO",
-          "availableLanguage": [
-            "es-CO",
-            "es"
-          ]
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": businessPhone,
-          "contactType": "emergency service",
-          "areaServed": serviceAreas,
-          "availableLanguage": [
-            "es-CO",
-            "es"
-          ]
-        }
-      ],
-      "makesOffer": services.map((service, index) => ({
-        "@type": "Offer",
-        "@id": `${businessURL}/#offer-${index + 1}`,
-        "availability": "https://schema.org/InStock",
-        "areaServed": serviceAreas.map((area) => ({
-          "@type": area === "Sabana Centro" ? "AdministrativeArea" : "City",
-          "name": area
-        })),
-        "itemOffered": {
-          "@type": "Service",
-          "@id": `${businessURL}/#service-${index + 1}`,
-          "name": service.name,
-          "description": service.description,
-          "serviceType": service.serviceType,
-          "provider": {
-            "@id": `${businessURL}/#organization`
-          },
-          "areaServed": serviceAreas.map((area) => ({
-            "@type": area === "Sabana Centro" ? "AdministrativeArea" : "City",
-            "name": area
-          }))
-        }
-      })),
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "@id": `${businessURL}/#offer-catalog`,
-        "name": "Catálogo de servicios de Mi Llave O.B",
-        "itemListElement": [
-          {
-            "@type": "OfferCatalog",
-            "name": "Cerrajería automotriz y residencial",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Apertura de vehículos sin daños",
-                  "description": "Apertura técnica de carros y camionetas mediante procedimientos no destructivos."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Apertura residencial",
-                  "description": "Apertura de puertas en casas, apartamentos, locales y oficinas."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Duplicado de llaves",
-                  "description": "Copias de llaves residenciales, comerciales, de candados y vehículos."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Cambio de guardas y cerraduras",
-                  "description": "Cambio de cerraduras, guardas y sistemas de acceso."
-                }
-              }
-            ]
-          },
-          {
-            "@type": "OfferCatalog",
-            "name": "Venta, instalación y ferretería",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Product",
-                  "name": "Chapas de seguridad",
-                  "description": "Venta e instalación de chapas de seguridad para viviendas, negocios y oficinas."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Product",
-                  "name": "Cerraduras inteligentes",
-                  "description": "Cerraduras inteligentes, sistemas biométricos y soluciones modernas de control de acceso."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Product",
-                  "name": "Artículos de ferretería",
-                  "description": "Herramientas, repuestos y accesorios de ferretería."
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "sameAs": [
-        "https://www.facebook.com/people/Mi-Llave-Ob/100052906641769/",
-        "https://www.instagram.com/mi_llave_ob/",
-        "https://www.tiktok.com/@mi.llave.o.b"
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${canonicalURL.toString()}#faq`,
-      "mainEntity": faqs.map((faq) => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.answer
-        }
-      }))
-    },
-    {
-      "@type": "ItemList",
-      "@id": `${businessURL}/#services-list`,
-      "name": "Servicios de cerrajería y ferretería en Zipaquirá",
-      "description": "Listado de servicios principales de Mi Llave O.B en Zipaquirá y Sabana Centro.",
-      "itemListElement": services.map((service, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "name": service.name,
-        "description": service.description,
-        "url": `${businessURL}/#servicios`
-      }))
-    }
-  ]
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": `${businessURL}/#website`,
+"url": businessURL,
+"name": businessName,
+"alternateName": [
+"Mi Llave OB",
+"Mi Llave O.B Cerrajería",
+"Cerrajería Mi Llave O.B"
+],
+"description": description,
+"inLanguage": "es-CO",
+"publisher": {
+"@id": `${businessURL}/#organization`
+}
+},
+{
+"@type": "WebPage",
+"@id": `${canonicalURL.toString()}#webpage`,
+"url": canonicalURL.toString(),
+"name": title,
+"description": description,
+"inLanguage": "es-CO",
+"isPartOf": {
+"@id": `${businessURL}/#website`
+},
+"about": {
+"@id": `${businessURL}/#organization`
+},
+"primaryImageOfPage": {
+"@type": "ImageObject",
+"@id": `${absoluteImageURL.toString()}#primaryimage`,
+"url": absoluteImageURL.toString(),
+"contentUrl": absoluteImageURL.toString(),
+"caption": "Mi Llave O.B cerrajería automotriz y residencial en Zipaquirá"
+},
+"breadcrumb": {
+"@id": `${canonicalURL.toString()}#breadcrumb`
+}
+},
+{
+"@type": "BreadcrumbList",
+"@id": `${canonicalURL.toString()}#breadcrumb`,
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "Inicio",
+"item": businessURL
+}
+]
+},
+{
+"@type": [
+"Organization",
+"LocalBusiness",
+"Locksmith",
+"HardwareStore"
+],
+"@id": `${businessURL}/#organization`,
+"name": businessName,
+"legalName": businessLegalName,
+"url": businessURL,
+"logo": {
+"@type": "ImageObject",
+"@id": `${logoURL.toString()}#logo`,
+"url": logoURL.toString(),
+"contentUrl": logoURL.toString(),
+"caption": "Logo de Mi Llave O.B"
+},
+"image": [
+absoluteImageURL.toString()
+],
+"description": "Cerrajería profesional en Zipaquirá. Apertura técnica de vehículos y residencias, duplicado de llaves, venta e instalación de chapas de alta seguridad, cerraduras inteligentes y artículos de ferretería con atención a domicilio.",
+"telephone": businessPhone,
+"address": {
+"@type": "PostalAddress",
+"streetAddress": businessAddress,
+"addressLocality": businessCity,
+"addressRegion": businessRegion,
+"addressCountry": businessCountry
+},
+"geo": {
+"@type": "GeoCoordinates",
+"latitude": businessLatitude,
+"longitude": businessLongitude
+},
+"hasMap": `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(businessAddress + ', ' + businessCity + ', ' + businessRegion + ', Colombia')}`,
+"openingHours": "Mo-Su 00:00-23:59",
+"openingHoursSpecification": [
+{
+"@type": "OpeningHoursSpecification",
+"dayOfWeek": [
+"Monday",
+"Tuesday",
+"Wednesday",
+"Thursday",
+"Friday",
+"Saturday",
+"Sunday"
+],
+"opens": "00:00",
+"closes": "23:59"
+}
+],
+"areaServed": serviceAreas.map((area) => ({
+"@type": area === "Sabana Centro" ? "AdministrativeArea" : "City",
+"name": area
+})),
+"knowsAbout": [
+"Cerrajería automotriz",
+"Cerrajería residencial",
+"Apertura de vehículos sin daños",
+"Duplicado de llaves",
+"Cambio de cerraduras",
+"Instalación de chapas",
+"Cerraduras inteligentes",
+"Ferretería",
+"Servicio a domicilio"
+],
+"contactPoint": [
+{
+"@type": "ContactPoint",
+"telephone": businessPhone,
+"contactType": "customer service",
+"areaServed": "CO",
+"availableLanguage": [
+"es-CO",
+"es"
+]
+},
+{
+"@type": "ContactPoint",
+"telephone": businessPhone,
+"contactType": "emergency service",
+"areaServed": serviceAreas,
+"availableLanguage": [
+"es-CO",
+"es"
+]
+}
+],
+"makesOffer": services.map((service, index) => ({
+"@type": "Offer",
+"@id": `${businessURL}/#offer-${index + 1}`,
+"availability": "https://schema.org/InStock",
+"areaServed": serviceAreas.map((area) => ({
+"@type": area === "Sabana Centro" ? "AdministrativeArea" : "City",
+"name": area
+})),
+"itemOffered": {
+"@type": "Service",
+"@id": `${businessURL}/#service-${index + 1}`,
+"name": service.name,
+"description": service.description,
+"serviceType": service.serviceType,
+"provider": {
+"@id": `${businessURL}/#organization`
+},
+"areaServed": serviceAreas.map((area) => ({
+"@type": area === "Sabana Centro" ? "AdministrativeArea" : "City",
+"name": area
+}))
+}
+})),
+"hasOfferCatalog": {
+"@type": "OfferCatalog",
+"@id": `${businessURL}/#offer-catalog`,
+"name": "Catálogo de servicios de Mi Llave O.B",
+"itemListElement": [
+{
+"@type": "OfferCatalog",
+"name": "Cerrajería automotriz y residencial",
+"itemListElement": [
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Apertura de vehículos sin daños",
+"description": "Apertura técnica de carros y camionetas mediante procedimientos no destructivos."
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Apertura residencial",
+"description": "Apertura de puertas en casas, apartamentos, locales y oficinas."
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Duplicado de llaves",
+"description": "Copias de llaves residenciales, comerciales, de candados y vehículos."
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Service",
+"name": "Cambio de guardas y cerraduras",
+"description": "Cambio de cerraduras, guardas y sistemas de acceso."
+}
+}
+]
+},
+{
+"@type": "OfferCatalog",
+"name": "Venta, instalación y ferretería",
+"itemListElement": [
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Product",
+"name": "Chapas de seguridad",
+"description": "Venta e instalación de chapas de seguridad para viviendas, negocios y oficinas."
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Product",
+"name": "Cerraduras inteligentes",
+"description": "Cerraduras inteligentes, sistemas biométricos y soluciones modernas de control de acceso."
+}
+},
+{
+"@type": "Offer",
+"itemOffered": {
+"@type": "Product",
+"name": "Artículos de ferretería",
+"description": "Herramientas, repuestos y accesorios de ferretería."
+}
+}
+]
+}
+]
+},
+"sameAs": [
+"https://www.facebook.com/people/Mi-Llave-Ob/100052906641769/",
+"https://www.instagram.com/mi_llave_ob/",
+"https://www.tiktok.com/@mi.llave.o.b"
+]
+},
+{
+"@type": "FAQPage",
+"@id": `${canonicalURL.toString()}#faq`,
+"mainEntity": faqs.map((faq) => ({
+"@type": "Question",
+"name": faq.question,
+"acceptedAnswer": {
+"@type": "Answer",
+"text": faq.answer
+}
+}))
+},
+{
+"@type": "ItemList",
+"@id": `${businessURL}/#services-list`,
+"name": "Servicios de cerrajería y ferretería en Zipaquirá",
+"description": "Listado de servicios principales de Mi Llave O.B en Zipaquirá y Sabana Centro.",
+"itemListElement": services.map((service, index) => ({
+"@type": "ListItem",
+"position": index + 1,
+"name": service.name,
+"description": service.description,
+"url": `${businessURL}/#servicios`
+}))
+}
+]
 };
 ---
 
 <!doctype html>
+
 <html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
@@ -429,83 +438,83 @@ const structuredData = {
     <meta name="bingbot" content={robotsContent} />
     <link rel="canonical" href={canonicalURL.toString()} />
 
-    <meta name="format-detection" content="telephone=yes, address=yes, email=no" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="theme-color" content="#0B0B0B" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="application-name" content="Mi Llave O.B" />
-    <meta name="apple-mobile-web-app-title" content="Mi Llave O.B" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=yes, address=yes, email=no" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="theme-color" content="#0B0B0B" />
+<meta name="color-scheme" content="dark light" />
 
-    <link rel="icon" type="image/svg+xml" href={faviconURL.toString()} />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
 
-    {/* Autoría y Metadatos de la Agencia */}
-    <meta name="author" content="Zipaquirá Digital | https://zipaquiradigital.com" />
-    <meta name="designer" content="Zipaquirá Digital" />
-    <meta name="publisher" content="Zipaquirá Digital" />
-    <meta name="copyright" content={`© ${new Date().getFullYear()} Mi Llave O.B Cerrajería`} />
+<link rel="icon" type="image/svg+xml" href={faviconURL.toString()} />
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    {/* Keywords Optimizadas */}
-    <meta name="keywords" content={keywords.join(", ")} />
+{/* Autoría y Metadatos de la Agencia */}
+<meta name="author" content="Zipaquirá Digital | https://zipaquiradigital.com" />
+<meta name="designer" content="Zipaquirá Digital" />
+<meta name="publisher" content="Zipaquirá Digital" />
+<meta name="copyright" content={`© ${new Date().getFullYear()} Mi Llave O.B Cerrajería`} />
 
-    {/* SEO Local / GEO */}
-    <meta name="geo.region" content="CO-CUN" />
-    <meta name="geo.placename" content="Zipaquirá, Cundinamarca, Colombia" />
-    <meta name="geo.position" content={`${businessLatitude};${businessLongitude}`} />
-    <meta name="ICBM" content={`${businessLatitude}, ${businessLongitude}`} />
-    <meta name="DC.title" content={title} />
-    <meta name="DC.description" content={description} />
-    <meta name="DC.language" content="es-CO" />
-    <meta name="DC.coverage" content="Zipaquirá, Cogua, Nemocón, Cajicá, Sopó, Chía, Sabana Centro, Cundinamarca, Colombia" />
+{/* Keywords Optimizadas */}
+<meta name="keywords" content={keywords.join(", ")} />
 
-    {/* Datos de negocio local */}
-    <meta name="business:contact_data:street_address" content={businessAddress} />
-    <meta name="business:contact_data:locality" content={businessCity} />
-    <meta name="business:contact_data:region" content={businessRegion} />
-    <meta name="business:contact_data:postal_code" content="" />
-    <meta name="business:contact_data:country_name" content="Colombia" />
-    <meta name="business:contact_data:phone_number" content={businessPhoneReadable} />
+{/* SEO Local / GEO */}
+<meta name="geo.region" content="CO-CUN" />
+<meta name="geo.placename" content="Zipaquirá, Cundinamarca, Colombia" />
+<meta name="geo.position" content={`${businessLatitude};${businessLongitude}`} />
+<meta name="ICBM" content={`${businessLatitude}, ${businessLongitude}`} />
+<meta name="DC.title" content={title} />
+<meta name="DC.description" content={description} />
+<meta name="DC.language" content="es-CO" />
+<meta name="DC.coverage" content="Zipaquirá, Cogua, Nemocón, Cajicá, Sopó, Chía, Sabana Centro, Cundinamarca, Colombia" />
 
-    {/* Open Graph / Facebook / WhatsApp */}
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL.toString()} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={absoluteImageURL.toString()} />
-    <meta property="og:image:secure_url" content={absoluteImageURL.toString()} />
-    <meta property="og:image:alt" content="Mi Llave O.B cerrajería automotriz y residencial 24/7 en Zipaquirá" />
-    <meta property="og:locale" content="es_CO" />
-    <meta property="og:site_name" content="Mi Llave O.B" />
+{/* Datos de negocio local */}
+<meta name="business:contact_data:street_address" content={businessAddress} />
+<meta name="business:contact_data:locality" content={businessCity} />
+<meta name="business:contact_data:region" content={businessRegion} />
+<meta name="business:contact_data:postal_code" content="" />
+<meta name="business:contact_data:country_name" content="Colombia" />
+<meta name="business:contact_data:phone_number" content={businessPhoneReadable} />
 
-    {/* Twitter / X */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalURL.toString()} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={absoluteImageURL.toString()} />
-    <meta name="twitter:image:alt" content="Mi Llave O.B cerrajería automotriz y residencial 24/7 en Zipaquirá" />
+{/* Open Graph / Facebook / WhatsApp */}
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL.toString()} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={absoluteImageURL.toString()} />
+<meta property="og:image:secure_url" content={absoluteImageURL.toString()} />
+<meta property="og:image:type" content={ogImageType} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Mi Llave O.B cerrajería automotriz y residencial 24/7 en Zipaquirá" />
+<meta property="og:locale" content="es_CO" />
+<meta property="og:site_name" content="Mi Llave O.B" />
 
-    {/* Idioma y alternativas */}
-    <link rel="alternate" hreflang="es-CO" href={canonicalURL.toString()} />
-    <link rel="alternate" hreflang="x-default" href={businessURL} />
-    <link rel="alternate" type="text/plain" href={llmsURL.toString()} title="Información para IA" />
+{/* Twitter / X */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL.toString()} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteImageURL.toString()} />
+<meta name="twitter:image:alt" content="Mi Llave O.B cerrajería automotriz y residencial 24/7 en Zipaquirá" />
 
-    {/* Precarga de Fuentes */}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@400;700&family=Russo+One&display=swap" rel="stylesheet" />
+{/* Idioma y alternativas */}
+<link rel="alternate" hreflang="es-CO" href={canonicalURL.toString()} />
+<link rel="alternate" hreflang="x-default" href={businessURL} />
+<link rel="alternate" type="text/plain" href={llmsURL.toString()} title="Información para IA" />
 
-    {/* JSON-LD Schema */}
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+{/* Precarga de Fuentes */}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@400;700&family=Russo+One&display=swap" rel="stylesheet" />
 
-    <meta name="generator" content={Astro.generator} />
+{/* JSON-LD Schema */}
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<meta name="generator" content={Astro.generator} />
+
   </head>
-  
+
   <body class="bg-negro-carbon text-blanco-tecnico antialiased min-h-screen">
     <Header />
     <main>
