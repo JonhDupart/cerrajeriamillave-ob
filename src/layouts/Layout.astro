@@ -26,8 +26,8 @@ const businessURL = siteURL.origin;
 const currentURL = new URL(Astro.url.pathname, siteURL);
 const canonicalURL = canonical ? new URL(canonical, siteURL) : currentURL;
 const absoluteImageURL = new URL(image, siteURL);
-const logoURL = new URL("/favicon.svg", siteURL);
-const faviconURL = new URL("/favicon.svg", siteURL);
+const logoURL = new URL("/favicon.ico", siteURL);
+const faviconURL = new URL("/favicon.ico", siteURL);
 const llmsURL = new URL("/llms.txt", siteURL);
 const imageExtension = absoluteImageURL.pathname.split(".").pop()?.toLowerCase();
 const ogImageType =
@@ -503,10 +503,44 @@ absoluteImageURL.toString()
 <link rel="alternate" type="text/plain" href={llmsURL.toString()} title="Información para IA" />
 
 {/* Precarga de Fuentes */}
+{/* Precarga de Fuentes */}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@400;700&family=Russo+One&display=swap" rel="stylesheet" />
+
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Russo+One&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Russo+One&display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Russo+One&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+  />
+</noscript>
 
 {/* JSON-LD Schema */}
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
