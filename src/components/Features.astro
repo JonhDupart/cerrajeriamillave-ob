@@ -1,9 +1,9 @@
-
 ---
 // src/components/Features.astro
 // Sección de características (Features)
 ---
-<section class="feature-section bg-black py-12 relative z-30 mt-12 mx-4 md:mx-8 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.7)] border border-plata/20 overflow-hidden opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+
+<section class="feature-section py-12 relative z-30 mt-12 mx-0 md:mx-8 bg-transparent md:bg-black rounded-none md:rounded-2xl shadow-none md:shadow-[0_10px_40px_rgba(0,0,0,0.7)] border-0 md:border md:border-plata/20 overflow-visible md:overflow-hidden opacity-0 translate-y-10 transition-all duration-1000 ease-out">
   
   {/* =========================================
       VISTA ESCRITORIO: Grid de 4 columnas
@@ -43,7 +43,7 @@
   {/* =========================================
       VISTA MÓVIL: Slider Infinito (2 por vista)
       ========================================= */}
-  <div class="block md:hidden relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-8 before:bg-gradient-to-r before:from-negro-carbon before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-8 after:bg-gradient-to-l after:from-negro-carbon after:to-transparent">
+  <div class="block md:hidden relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-8 before:bg-gradient-to-r before:from-negro-carbon/80 before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-8 after:bg-gradient-to-l after:from-negro-carbon/80 after:to-transparent">
     <div class="flex w-max animate-infinite-features">
       
       {/* GRUPO 1 */}
@@ -54,18 +54,21 @@
           </div>
           <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Atención Rápida</span>
         </div>
+
         <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
           <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
             <span class="material-symbols-outlined text-[28px]">home_repair_service</span>
           </div>
           <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Servicio a Domicilio</span>
         </div>
+
         <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
           <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
             <span class="material-symbols-outlined text-[28px]">distance</span>
           </div>
           <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Cobertura Local</span>
         </div>
+
         <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
           <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
             <span class="material-symbols-outlined text-[28px]">person_check</span>
@@ -82,18 +85,21 @@
           </div>
           <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Atención Rápida</span>
         </div>
+
         <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
           <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
             <span class="material-symbols-outlined text-[28px]">home_repair_service</span>
           </div>
           <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Servicio a Domicilio</span>
         </div>
+
         <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
           <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
             <span class="material-symbols-outlined text-[28px]">distance</span>
           </div>
           <span class="font-bebas text-xl tracking-wide text-blanco-tecnico">Cobertura Local</span>
         </div>
+
         <div class="feature-mobile-item flex flex-col items-center text-center gap-3 px-2">
           <div class="w-14 h-14 rounded-full bg-naranja-dorado/10 flex items-center justify-center text-naranja-dorado border border-naranja-dorado/30 shadow-[0_0_15px_rgba(255,152,0,0.15)]">
             <span class="material-symbols-outlined text-[28px]">person_check</span>
@@ -107,45 +113,74 @@
 </section>
 
 <style>
-  /* Calculamos exactamente 2 elementos por vista en móvil 
-     (100vw menos los márgenes del contenedor mx-4 = 2rem) dividido entre 2 */
+  /* En móvil: exactamente 2 elementos por vista, sin caja ni márgenes laterales */
   .feature-mobile-item {
-    width: calc((100vw - 2rem) / 2);
+    width: 50vw;
     flex-shrink: 0;
   }
 
   /* Animación del slider infinito */
   @keyframes scroll-features {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Se desplaza exactamente 1 grupo entero */
+    0% { 
+      transform: translateX(0); 
+    }
+
+    100% { 
+      transform: translateX(-50%); 
+    }
   }
 
   .animate-infinite-features {
     animation: scroll-features 12s linear infinite;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-infinite-features {
+      animation: none;
+    }
+  }
 </style>
 
 <script>
-  // Script para animar la entrada global de toda la sección (fade-in-up)
-  document.addEventListener('DOMContentLoaded', () => {
+  const initFeatureSection = () => {
     const section = document.querySelector('.feature-section');
 
-    if (section) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Cuando la sección entra en pantalla, quitamos la opacidad 0 y el desplazamiento
-            section.classList.remove('opacity-0', 'translate-y-10');
-            section.classList.add('opacity-100', 'translate-y-0');
-            observer.unobserve(section);
-          }
-        });
-      }, {
-        threshold: 0.2 // Se activa cuando el 20% es visible
-      });
+    if (!(section instanceof HTMLElement)) return;
 
-      observer.observe(section);
+    if (section.dataset.featureReady === 'true') return;
+
+    section.dataset.featureReady = 'true';
+
+    if (!('IntersectionObserver' in window)) {
+      section.classList.remove('opacity-0', 'translate-y-10');
+      section.classList.add('opacity-100', 'translate-y-0');
+      return;
     }
-  });
-</script>
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          section.classList.remove('opacity-0', 'translate-y-10');
+          section.classList.add('opacity-100', 'translate-y-0');
+
+          observer.unobserve(section);
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    observer.observe(section);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFeatureSection);
+  } else {
+    initFeatureSection();
+  }
+
+  document.addEventListener('astro:page-load', initFeatureSection);
+</script>

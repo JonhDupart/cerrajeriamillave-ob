@@ -1,4 +1,3 @@
-
 ---
 // src/components/Gallery.astro
 ---
@@ -17,13 +16,13 @@
       <img 
         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         data-alt="A close-up shot of a technician opening a luxury vehicle door using specialized non-destructive tools..." 
-        src="/porquemillave.jpg" 
-        alt="Apertura de Vehículos de Alta Gama"
+        src="/cambio-de-guardas-zipaquira.jpeg" 
+        alt="Apertura de Vehículos "
       />
       {/* Overlay Oscuro con Texto */}
       <div class="absolute inset-0 bg-gradient-to-t from-negro-carbon/90 via-negro-carbon/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
         <p class="text-naranja-dorado font-bebas text-3xl tracking-wide drop-shadow-md transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-          Apertura de Vehículos de Alta Gama
+          Apertura de Vehículos 
         </p>
       </div>
     </div>
@@ -33,7 +32,7 @@
       <img 
         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         data-alt="Display of several high-security electronic and biometric door locks in a modern showroom..." 
-        src="/porquemillave.jpg" 
+        src="/cambio de guardas.jpeg" 
         alt="Cerraduras Inteligentes"
       />
       {/* Overlay Oscuro con Texto */}
@@ -49,7 +48,7 @@
       <img 
         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         data-alt="A professional locksmith installing a high-security cylinder into a solid wood door..." 
-        src="/porquemillave.jpg" 
+        src="/cerrajero-zipaquira.jpeg" 
         alt="Instalación de chapas"
       />
       <div class="absolute inset-0 bg-negro-carbon/20 group-hover:bg-transparent transition-colors duration-300"></div>
@@ -60,12 +59,73 @@
       <img 
         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
         data-alt="A row of expertly cut keys lying on a dark textured surface, illuminated by a single directional light source..." 
-        src="/porquemillave.jpg" 
+        src="/cerrejaeria-zipaquira.jpeg" 
         alt="Duplicado de llaves"
       />
       <div class="absolute inset-0 bg-negro-carbon/20 group-hover:bg-transparent transition-colors duration-300"></div>
     </div>
 
+  </div>
+
+  {/* Botón Ver Video */}
+  <div data-gallery-reveal style="--gallery-delay: 520ms;" class="flex justify-center mt-12">
+    <button 
+      type="button"
+      id="openGalleryVideoModal"
+      class="group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-naranja-dorado/40 bg-negro-carbon px-8 py-4 font-bebas text-2xl tracking-wide text-naranja-dorado shadow-lg shadow-naranja-dorado/10 transition-all duration-300 hover:-translate-y-1 hover:border-naranja-dorado hover:bg-naranja-dorado hover:text-negro-carbon hover:shadow-[0_0_28px_rgba(255,152,0,0.35)]"
+      aria-haspopup="dialog"
+      aria-controls="galleryVideoModal"
+    >
+      <span class="relative z-10 flex items-center gap-3">
+        Ver video
+        <span class="flex h-8 w-8 items-center justify-center rounded-full border border-current text-base transition-transform duration-300 group-hover:translate-x-1">
+          ▶
+        </span>
+      </span>
+    </button>
+  </div>
+
+  {/* Modal Video */}
+  <div 
+    id="galleryVideoModal"
+    class="fixed inset-0 z-[999] hidden items-center justify-center bg-negro-carbon/90 px-4 py-6 backdrop-blur-md"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="galleryVideoModalTitle"
+  >
+    <div 
+      class="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-naranja-dorado/30 bg-negro-carbon shadow-[0_0_40px_rgba(255,152,0,0.18)]"
+      data-gallery-video-content
+    >
+      <div class="flex items-center justify-between border-b border-plata/10 px-5 py-4 md:px-6">
+        <h3 id="galleryVideoModalTitle" class="font-bebas text-2xl md:text-3xl tracking-wide text-naranja-dorado">
+          Cerrajería Mi Llave OB 
+        </h3>
+
+        <button 
+          type="button"
+          id="closeGalleryVideoModal"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-plata/20 text-blanco-tecnico transition-all duration-300 hover:border-naranja-dorado hover:bg-naranja-dorado hover:text-negro-carbon"
+          aria-label="Cerrar video"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div class="p-3 md:p-5">
+        <div class="relative aspect-video overflow-hidden rounded-2xl border border-plata/10 bg-black">
+          <video
+            id="galleryVideo"
+            class="h-full w-full object-cover"
+            src="/0611.mp4"
+            muted
+            playsinline
+            controls
+            preload="metadata"
+          ></video>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -97,7 +157,6 @@
     }
   }
 </style>
-
 <script>
   const initGalleryReveal = () => {
     const elements = document.querySelectorAll('[data-gallery-reveal]');
@@ -127,7 +186,71 @@
     elements.forEach((element) => observer.observe(element));
   };
 
-  initGalleryReveal();
+  const initGalleryVideoModal = () => {
+    const openButton = document.getElementById('openGalleryVideoModal');
+    const closeButton = document.getElementById('closeGalleryVideoModal');
+    const modal = document.getElementById('galleryVideoModal');
+    const modalContent = modal?.querySelector('[data-gallery-video-content]');
+    const video = document.getElementById('galleryVideo');
 
-  document.addEventListener('astro:page-load', initGalleryReveal);
+    if (
+      !(openButton instanceof HTMLButtonElement) ||
+      !(closeButton instanceof HTMLButtonElement) ||
+      !(modal instanceof HTMLElement) ||
+      !(modalContent instanceof HTMLElement) ||
+      !(video instanceof HTMLVideoElement)
+    ) return;
+
+    if (modal.dataset.galleryModalReady === 'true') return;
+
+    modal.dataset.galleryModalReady = 'true';
+
+    const openModal = () => {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      video.muted = true;
+      video.play().catch(() => {});
+    };
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    openButton.addEventListener('click', openModal);
+    closeButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+      const target = event.target;
+
+      if (target instanceof Node && !modalContent.contains(target)) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  };
+
+  const initGallery = () => {
+    initGalleryReveal();
+    initGalleryVideoModal();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGallery);
+  } else {
+    initGallery();
+  }
+
+  document.addEventListener('astro:page-load', initGallery);
 </script>
